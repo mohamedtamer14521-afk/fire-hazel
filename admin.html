@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800;900&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
 
   <!-- Master Stylesheet -->
-  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./main.css">
 
   <style>
     /* Admin Portal Specific Styles (Luxury Dark Atelier Aesthetic) */
@@ -1115,12 +1115,12 @@
               <div class="form-row-2">
                 <div class="admin-field">
                   <label for="form-primary-img">PRIMARY (COVER) IMAGE URL *</label>
-                  <input type="text" class="admin-input" id="form-primary-img" required placeholder="./assets/products/puffer-front.jpg" value="./assets/products/puffer-front.jpg">
+                  <input type="text" class="admin-input" id="form-primary-img" required placeholder="./puffer-front.jpg" value="./puffer-front.jpg">
                 </div>
 
                 <div class="admin-field">
                   <label for="form-secondary-img">SECONDARY (FLIP) IMAGE</label>
-                  <input type="text" class="admin-input" id="form-secondary-img" placeholder="./assets/products/puffer-back.jpg">
+                  <input type="text" class="admin-input" id="form-secondary-img" placeholder="./puffer-back.jpg">
                 </div>
               </div>
 
@@ -1300,7 +1300,7 @@
 
           <!-- Add Image by URL Bar -->
           <div style="margin-top: 1.25rem; display: flex; gap: 0.5rem; align-items: center;">
-            <input type="text" class="admin-input" id="showroom-url-input" placeholder="Or enter direct image URL (e.g. ./assets/cairo-showroom.jpg or https://...)" style="flex: 1;">
+            <input type="text" class="admin-input" id="showroom-url-input" placeholder="Or enter direct image URL (e.g. ./hero-campaign.jpg or https://...)" style="flex: 1;">
             <button type="button" class="btn-portal btn-portal-accent" id="btn-add-showroom-url" style="white-space: nowrap;">
               <span>+ ADD URL</span>
             </button>
@@ -1401,7 +1401,7 @@
   <!-- Official Supabase JS SDK via CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <!-- Central Supabase Client & Engine Wrapper -->
-  <script src="./js/supabase-config.js"></script>
+  <script src="./supabase-config.js"></script>
 
   <!-- Admin JavaScript Logic -->
   <script>
@@ -1414,11 +1414,11 @@
         "price": 3850,
         "status": "LOW STOCK / DROP 004",
         "statusType": "badge-warning",
-        "primaryImage": "./assets/products/puffer-front.jpg",
-        "secondaryImage": "./assets/products/puffer-back.jpg",
+        "primaryImage": "./puffer-front.jpg",
+        "secondaryImage": "./puffer-back.jpg",
         "images": [
-          "./assets/products/puffer-front.jpg",
-          "./assets/products/puffer-back.jpg"
+          "./puffer-front.jpg",
+          "./puffer-back.jpg"
         ],
         "sizes": ["S", "M", "L", "XL"],
         "inStock": true
@@ -1431,11 +1431,11 @@
         "price": 2450,
         "status": "EXCLUSIVE ALLOCATION",
         "statusType": "badge-exclusive",
-        "primaryImage": "./assets/products/knit-front.jpg",
-        "secondaryImage": "./assets/products/knit-back.jpg",
+        "primaryImage": "./knit-front.jpg",
+        "secondaryImage": "./knit-back.jpg",
         "images": [
-          "./assets/products/knit-front.jpg",
-          "./assets/products/knit-back.jpg"
+          "./knit-front.jpg",
+          "./knit-back.jpg"
         ],
         "sizes": ["M", "L", "XL"],
         "inStock": true
@@ -1448,11 +1448,11 @@
         "price": 2950,
         "status": "LIMITED DROP",
         "statusType": "badge-limited",
-        "primaryImage": "./assets/products/tracksuit.jpg",
-        "secondaryImage": "./assets/hero-campaign.jpg",
+        "primaryImage": "./tracksuit.jpg",
+        "secondaryImage": "./hero-campaign.jpg",
         "images": [
-          "./assets/products/tracksuit.jpg",
-          "./assets/hero-campaign.jpg"
+          "./tracksuit.jpg",
+          "./hero-campaign.jpg"
         ],
         "sizes": ["S", "M", "L"],
         "inStock": true
@@ -1465,11 +1465,11 @@
         "price": 2250,
         "status": "RESTOCK COMPLETED",
         "statusType": "badge-restock",
-        "primaryImage": "./assets/products/denim-detail.jpg",
-        "secondaryImage": "./assets/tactical-bags.jpg",
+        "primaryImage": "./denim-detail.jpg",
+        "secondaryImage": "./capsule-accessories.jpg",
         "images": [
-          "./assets/products/denim-detail.jpg",
-          "./assets/tactical-bags.jpg"
+          "./denim-detail.jpg",
+          "./capsule-accessories.jpg"
         ],
         "sizes": ["30", "32", "34", "36"],
         "inStock": true
@@ -1487,7 +1487,7 @@
       developer_phone: '+201129333453',
       whatsapp_number: '201282350233',
       vip_alert_status: 'ACTIVE // CAIRO METROPOLITAN',
-      showroom_gallery: ['./assets/cairo-showroom.jpg']
+      showroom_gallery: ['./hero-campaign.jpg']
     };
 
     let currentProducts = [];
@@ -1752,7 +1752,7 @@
           if (localSaved) {
             currentProducts = JSON.parse(localSaved);
           } else {
-            const res = await fetch('./data/products.json');
+            const res = await fetch('./products.json');
             if (res.ok) {
               currentProducts = await res.json();
             } else {
@@ -1774,7 +1774,7 @@
 
       // Ensure showroom gallery array exists
       if (!Array.isArray(currentSettings.showroom_gallery) || currentSettings.showroom_gallery.length === 0) {
-        currentSettings.showroom_gallery = ['./assets/cairo-showroom.jpg'];
+        currentSettings.showroom_gallery = ['./hero-campaign.jpg'];
       }
 
       renderInventoryTable();
@@ -1803,7 +1803,7 @@
         <tr data-id="${p.id}">
           <td>
             <div style="position: relative; width: 44px; height: 56px;">
-              <img src="${p.primaryImage}" alt="${p.title}" class="item-thumb-sm" onerror="this.src='./assets/products/puffer-front.jpg'" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+              <img src="${p.primaryImage}" alt="${p.title}" class="item-thumb-sm" onerror="this.src='./puffer-front.jpg'" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
               ${imgCount > 1 ? `<span style="position: absolute; bottom: -4px; right: -4px; background: #071911; color: #2ED573; font-family: var(--font-mono); font-size: 8px; font-weight: 700; padding: 1px 4px; border-radius: 3px; border: 1px solid rgba(46, 213, 115, 0.4);">${imgCount} 📸</span>` : ''}
             </div>
           </td>
@@ -1927,7 +1927,7 @@
         const imgSrc = item.type === 'file' ? item.previewUrl : item.url;
 
         card.innerHTML = `
-          <img src="${imgSrc}" class="preview-thumb-img" alt="Garment Preview ${index + 1}" onerror="this.src='./assets/products/puffer-front.jpg'">
+          <img src="${imgSrc}" class="preview-thumb-img" alt="Garment Preview ${index + 1}" onerror="this.src='./puffer-front.jpg'">
           ${index === 0 ? '<span class="preview-thumb-badge">COVER</span>' : ''}
           <button type="button" class="preview-thumb-remove" title="Remove photo" data-index="${index}">✕</button>
         `;
@@ -1953,7 +1953,7 @@
       if (stagedProductImages.length > 0) {
         const first = stagedProductImages[0];
         if (primaryInput) {
-          primaryInput.value = first.type === 'existing' ? first.url : (primaryInput.value || './assets/products/puffer-front.jpg');
+          primaryInput.value = first.type === 'existing' ? first.url : (primaryInput.value || './puffer-front.jpg');
         }
         if (stagedProductImages.length > 1) {
           const second = stagedProductImages[1];
@@ -2073,7 +2073,7 @@
       document.getElementById('product-studio-form').reset();
       document.getElementById('form-heading').textContent = 'ADD NEW GARMENT';
       document.getElementById('form-product-id').value = '';
-      document.getElementById('form-primary-img').value = './assets/products/puffer-front.jpg';
+      document.getElementById('form-primary-img').value = './puffer-front.jpg';
       document.getElementById('form-secondary-img').value = '';
       stagedProductImages = [];
       renderStagedPreviews();
@@ -2138,10 +2138,10 @@
         }
 
         if (finalImageUrls.length === 0) {
-          finalImageUrls.push('./assets/products/puffer-front.jpg');
+          finalImageUrls.push('./puffer-front.jpg');
         }
 
-        const primaryImage = finalImageUrls[0] || './assets/products/puffer-front.jpg';
+        const primaryImage = finalImageUrls[0] || './puffer-front.jpg';
         const secondaryImage = finalImageUrls[1] || '';
 
         const productPayload = {
@@ -2322,7 +2322,7 @@
       if (resetBtn) {
         resetBtn.addEventListener('click', async () => {
           if (confirm('Reset showroom media gallery to default photo?')) {
-            currentSettings.showroom_gallery = ['./assets/cairo-showroom.jpg'];
+            currentSettings.showroom_gallery = ['./hero-campaign.jpg'];
             renderShowroomStudioGallery();
             await saveShowroomGallery();
             showToast('SHOWROOM GALLERY RESET TO DEFAULT ✓');
@@ -2336,7 +2336,7 @@
       const countBadge = document.getElementById('showroom-count-badge');
       if (!grid) return;
 
-      const gallery = currentSettings.showroom_gallery || ['./assets/cairo-showroom.jpg'];
+      const gallery = currentSettings.showroom_gallery || ['./hero-campaign.jpg'];
 
       if (countBadge) {
         countBadge.textContent = `${gallery.length} ${gallery.length === 1 ? 'PHOTO' : 'PHOTOS'}`;
@@ -2355,7 +2355,7 @@
       grid.innerHTML = gallery.map((imgUrl, idx) => `
         <div class="showroom-gallery-card ${idx === 0 ? 'is-primary-cover' : ''}" data-idx="${idx}">
           <div class="showroom-card-img-wrap">
-            <img src="${imgUrl}" alt="Showroom Photo ${idx + 1}" class="showroom-card-img" onerror="this.src='./assets/cairo-showroom.jpg'">
+            <img src="${imgUrl}" alt="Showroom Photo ${idx + 1}" class="showroom-card-img" onerror="this.src='./hero-campaign.jpg'">
             ${idx === 0 ? `<span class="showroom-cover-tag">MAIN COVER (HERO)</span>` : ''}
             <span class="showroom-index-tag">#${idx + 1}</span>
           </div>

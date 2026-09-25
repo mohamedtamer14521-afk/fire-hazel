@@ -7,11 +7,11 @@
     "price": 3850,
     "status": "LOW STOCK / DROP 004",
     "statusType": "badge-warning",
-    "primaryImage": "./assets/products/puffer-front.jpg",
-    "secondaryImage": "./assets/products/puffer-back.jpg",
+    "primaryImage": "./puffer-front.jpg",
+    "secondaryImage": "./puffer-back.jpg",
     "images": [
-      "./assets/products/puffer-front.jpg",
-      "./assets/products/puffer-back.jpg"
+      "./puffer-front.jpg",
+      "./puffer-back.jpg"
     ],
     "sizes": ["S", "M", "L", "XL"],
     "inStock": true
@@ -24,11 +24,11 @@
     "price": 2450,
     "status": "EXCLUSIVE ALLOCATION",
     "statusType": "badge-exclusive",
-    "primaryImage": "./assets/products/knit-front.jpg",
-    "secondaryImage": "./assets/products/knit-back.jpg",
+    "primaryImage": "./knit-front.jpg",
+    "secondaryImage": "./knit-back.jpg",
     "images": [
-      "./assets/products/knit-front.jpg",
-      "./assets/products/knit-back.jpg"
+      "./knit-front.jpg",
+      "./knit-back.jpg"
     ],
     "sizes": ["M", "L", "XL"],
     "inStock": true
@@ -41,11 +41,11 @@
     "price": 2950,
     "status": "LIMITED DROP",
     "statusType": "badge-limited",
-    "primaryImage": "./assets/products/tracksuit.jpg",
-    "secondaryImage": "./assets/hero-campaign.jpg",
+    "primaryImage": "./tracksuit.jpg",
+    "secondaryImage": "./hero-campaign.jpg",
     "images": [
-      "./assets/products/tracksuit.jpg",
-      "./assets/hero-campaign.jpg"
+      "./tracksuit.jpg",
+      "./hero-campaign.jpg"
     ],
     "sizes": ["S", "M", "L"],
     "inStock": true
@@ -58,11 +58,11 @@
     "price": 2250,
     "status": "RESTOCK COMPLETED",
     "statusType": "badge-restock",
-    "primaryImage": "./assets/products/denim-detail.jpg",
-    "secondaryImage": "./assets/capsules/capsule-cargo.jpg",
+    "primaryImage": "./denim-detail.jpg",
+    "secondaryImage": "./capsule-cargo.jpg",
     "images": [
-      "./assets/products/denim-detail.jpg",
-      "./assets/capsules/capsule-cargo.jpg"
+      "./denim-detail.jpg",
+      "./capsule-cargo.jpg"
     ],
     "sizes": ["30", "32", "34", "36"],
     "inStock": true
@@ -75,10 +75,10 @@
     "price": 1450,
     "status": "DROP 004 // ACTIVE",
     "statusType": "badge-warning",
-    "primaryImage": "./assets/capsules/capsule-accessories.jpg",
-    "secondaryImage": "./assets/capsules/capsule-accessories.jpg",
+    "primaryImage": "./capsule-accessories.jpg",
+    "secondaryImage": "./capsule-accessories.jpg",
     "images": [
-      "./assets/capsules/capsule-accessories.jpg"
+      "./capsule-accessories.jpg"
     ],
     "sizes": ["ONE SIZE"],
     "inStock": true

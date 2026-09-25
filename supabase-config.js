@@ -87,7 +87,7 @@ async function fetchProductsFromCloud() {
       tag: row.tag,
       price: Number(row.price),
       sizes: row.sizes || ['S', 'M', 'L'],
-      primaryImage: (row.images && row.images[0]) ? row.images[0] : './assets/products/puffer-front.jpg',
+      primaryImage: (row.images && row.images[0]) ? row.images[0] : './puffer-front.jpg',
       secondaryImage: (row.images && row.images[1]) ? row.images[1] : '',
       images: row.images || [],
       status: row.status || 'DROP 004 // ACTIVE',

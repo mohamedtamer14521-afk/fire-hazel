@@ -726,11 +726,11 @@ const DEFAULT_PRODUCTS = [
     price: 3850,
     status: "LOW STOCK / DROP 004",
     statusType: "badge-warning",
-    primaryImage: "./assets/products/puffer-front.jpg",
-    secondaryImage: "./assets/products/puffer-back.jpg",
+    primaryImage: "./puffer-front.jpg",
+    secondaryImage: "./puffer-back.jpg",
     images: [
-      "./assets/products/puffer-front.jpg",
-      "./assets/products/puffer-back.jpg"
+      "./puffer-front.jpg",
+      "./puffer-back.jpg"
     ],
     sizes: ["S", "M", "L", "XL"],
     inStock: true
@@ -743,11 +743,11 @@ const DEFAULT_PRODUCTS = [
     price: 2450,
     status: "EXCLUSIVE ALLOCATION",
     statusType: "badge-exclusive",
-    primaryImage: "./assets/products/knit-front.jpg",
-    secondaryImage: "./assets/products/knit-back.jpg",
+    primaryImage: "./knit-front.jpg",
+    secondaryImage: "./knit-back.jpg",
     images: [
-      "./assets/products/knit-front.jpg",
-      "./assets/products/knit-back.jpg"
+      "./knit-front.jpg",
+      "./knit-back.jpg"
     ],
     sizes: ["M", "L", "XL"],
     inStock: true
@@ -760,11 +760,11 @@ const DEFAULT_PRODUCTS = [
     price: 2950,
     status: "LIMITED DROP",
     statusType: "badge-limited",
-    primaryImage: "./assets/products/tracksuit.jpg",
-    secondaryImage: "./assets/hero-campaign.jpg",
+    primaryImage: "./tracksuit.jpg",
+    secondaryImage: "./hero-campaign.jpg",
     images: [
-      "./assets/products/tracksuit.jpg",
-      "./assets/hero-campaign.jpg"
+      "./tracksuit.jpg",
+      "./hero-campaign.jpg"
     ],
     sizes: ["S", "M", "L"],
     inStock: true
@@ -777,11 +777,11 @@ const DEFAULT_PRODUCTS = [
     price: 2250,
     status: "RESTOCK COMPLETED",
     statusType: "badge-restock",
-    primaryImage: "./assets/products/denim-detail.jpg",
-    secondaryImage: "./assets/capsules/capsule-cargo.jpg",
+    primaryImage: "./denim-detail.jpg",
+    secondaryImage: "./capsule-cargo.jpg",
     images: [
-      "./assets/products/denim-detail.jpg",
-      "./assets/capsules/capsule-cargo.jpg"
+      "./denim-detail.jpg",
+      "./capsule-cargo.jpg"
     ],
     sizes: ["30", "32", "34", "36"],
     inStock: true
@@ -794,10 +794,10 @@ const DEFAULT_PRODUCTS = [
     price: 1450,
     status: "DROP 004 // ACTIVE",
     statusType: "badge-warning",
-    primaryImage: "./assets/capsules/capsule-accessories.jpg",
-    secondaryImage: "./assets/capsules/capsule-accessories.jpg",
+    primaryImage: "./capsule-accessories.jpg",
+    secondaryImage: "./capsule-accessories.jpg",
     images: [
-      "./assets/capsules/capsule-accessories.jpg"
+      "./capsule-accessories.jpg"
     ],
     sizes: ["ONE SIZE"],
     inStock: true
@@ -808,7 +808,7 @@ const DEFAULT_PRODUCTS = [
  * Helper to extract all valid images from product record
  */
 function getProductImages(product) {
-  if (!product) return ['./assets/products/puffer-front.jpg'];
+  if (!product) return ['./puffer-front.jpg'];
   let list = [];
   if (Array.isArray(product.images) && product.images.length > 0) {
     list = product.images.filter(url => url && typeof url === 'string' && url.trim().length > 0);
@@ -822,7 +822,7 @@ function getProductImages(product) {
     }
   }
   if (list.length === 0) {
-    list.push('./assets/products/puffer-front.jpg');
+    list.push('./puffer-front.jpg');
   }
   return list;
 }
@@ -861,7 +861,7 @@ async function initDynamicProducts() {
   // 3. Try data/products.json
   if (!products) {
     try {
-      const response = await fetch('./data/products.json');
+      const response = await fetch('./products.json');
       if (response.ok) {
         products = await response.json();
       }
@@ -1146,7 +1146,7 @@ function initProductInteractions() {
         e.stopPropagation();
         const selectedSize = card.querySelector('.size-pill-btn.is-active')?.dataset.size || 'M';
         const activeImg = card.querySelector('.card-carousel-slide.is-active img') || card.querySelector('.product-img-primary');
-        const imageSrc = activeImg ? activeImg.getAttribute('src') : './assets/products/puffer-front.jpg';
+        const imageSrc = activeImg ? activeImg.getAttribute('src') : './puffer-front.jpg';
         const originalText = addBtn.innerHTML;
         
         addBtn.classList.add('is-added');
@@ -1499,7 +1499,7 @@ function initProductDetailModal() {
         title: currentModalProduct.title,
         price: Number(currentModalProduct.price) || 2500,
         size: selectedModalSize || 'M',
-        image: modalImages[0] || currentModalProduct.primaryImage || './assets/products/puffer-front.jpg',
+        image: modalImages[0] || currentModalProduct.primaryImage || './puffer-front.jpg',
         quantity: 1
       });
 
