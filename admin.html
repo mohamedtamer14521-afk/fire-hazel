@@ -1,0 +1,2504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAZEL // Atelier Inventory &amp; Cloud CMS (Supabase Powered)</title>
+  
+  <!-- SEO & Brand Metadata -->
+  <meta name="description" content="HAZEL Streetwear Atelier Cloud CMS. Supabase Database &amp; Storage Engine, Real-time Drop 004 Inventory, Live Site Settings, and Showroom Gallery.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Google Fonts: Gothic Display, Modern Editorial Sans & Monospace -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800;900&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="./css/main.css">
+
+  <style>
+    /* Admin Portal Specific Styles (Luxury Dark Atelier Aesthetic) */
+    body {
+      background-color: var(--green-surface);
+      color: var(--text-inverse);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .admin-header {
+      background-color: rgba(7, 25, 17, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(244, 239, 235, 0.12);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .admin-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .admin-brand-group {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .admin-title-badge {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.12em;
+      color: var(--text-inverse-muted);
+      border-left: 1px solid rgba(244, 239, 235, 0.2);
+      padding-left: 1.25rem;
+      text-transform: uppercase;
+    }
+
+    .admin-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .cloud-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(244, 239, 235, 0.08);
+      border: 1px solid rgba(244, 239, 235, 0.15);
+      color: var(--text-inverse-muted);
+      cursor: pointer;
+      transition: all 150ms ease;
+    }
+
+    .cloud-status-pill.is-connected {
+      background: rgba(46, 213, 115, 0.12);
+      border-color: rgba(46, 213, 115, 0.4);
+      color: #2ED573;
+      font-weight: 700;
+    }
+
+    .cloud-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #E74C3C;
+    }
+
+    .cloud-status-pill.is-connected .cloud-status-dot {
+      background: #2ED573;
+      box-shadow: 0 0 8px #2ED573;
+    }
+
+    .auth-user-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(46, 213, 115, 0.1);
+      border: 1px solid rgba(46, 213, 115, 0.3);
+      color: #2ED573;
+      font-weight: 600;
+    }
+
+    .btn-portal {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 0.6rem 1.125rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 150ms ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+    }
+
+    .btn-portal-primary {
+      background: #2ED573;
+      color: #071911;
+      border: 1px solid #2ED573;
+    }
+
+    .btn-portal-primary:hover {
+      background: #26b963;
+      box-shadow: 0 4px 16px rgba(46, 213, 115, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .btn-portal-outline {
+      background: rgba(244, 239, 235, 0.06);
+      color: var(--text-inverse);
+      border: 1px solid rgba(244, 239, 235, 0.2);
+    }
+
+    .btn-portal-outline:hover {
+      background: rgba(244, 239, 235, 0.12);
+      border-color: rgba(244, 239, 235, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-portal-accent {
+      background: rgba(46, 213, 115, 0.15);
+      color: #2ED573;
+      border: 1px solid rgba(46, 213, 115, 0.4);
+    }
+
+    .btn-portal-accent:hover {
+      background: rgba(46, 213, 115, 0.25);
+    }
+
+    .btn-portal-danger {
+      background: rgba(231, 76, 60, 0.15);
+      color: #FF7675;
+      border: 1px solid rgba(231, 76, 60, 0.4);
+    }
+
+    .btn-portal-danger:hover {
+      background: rgba(231, 76, 60, 0.3);
+    }
+
+    /* Tabs Navigation */
+    .admin-nav-tabs {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid rgba(244, 239, 235, 0.12);
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .admin-tab-btn {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 0.75rem 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text-inverse-muted);
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 150ms ease;
+      white-space: nowrap;
+    }
+
+    .admin-tab-btn:hover {
+      color: var(--text-inverse);
+    }
+
+    .admin-tab-btn.is-active {
+      color: #2ED573;
+      border-bottom-color: #2ED573;
+    }
+
+    /* Dashboard Metrics Bar */
+    .admin-metrics-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .metric-card {
+      background: rgba(11, 36, 25, 0.6);
+      border: 1px solid rgba(244, 239, 235, 0.12);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .metric-label {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+      color: var(--text-inverse-muted);
+      text-transform: uppercase;
+    }
+
+    .metric-val {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: var(--text-inverse);
+    }
+
+    .metric-val.accent {
+      color: #2ED573;
+    }
+
+    /* Main Admin Layout Grid */
+    .admin-layout-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2rem;
+      align-items: start;
+      margin-bottom: 3rem;
+    }
+
+    .admin-panel-card {
+      background: rgba(11, 36, 25, 0.65);
+      border: 1px solid rgba(244, 239, 235, 0.12);
+      border-radius: 14px;
+      padding: 1.75rem;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(244, 239, 235, 0.1);
+      padding-bottom: 1rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .panel-title {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-inverse);
+    }
+
+    /* Inventory Table */
+    .admin-table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .admin-table th {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-inverse-muted);
+      padding: 0.75rem 0.85rem;
+      border-bottom: 1px solid rgba(244, 239, 235, 0.15);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .admin-table td {
+      padding: 0.85rem;
+      border-bottom: 1px solid rgba(244, 239, 235, 0.08);
+      font-size: 0.8125rem;
+      vertical-align: middle;
+    }
+
+    .admin-table tr:hover td {
+      background: rgba(244, 239, 235, 0.03);
+    }
+
+    .item-thumb-sm {
+      width: 48px;
+      height: 60px;
+      border-radius: 6px;
+      object-fit: cover;
+      background: #153D2C;
+      border: 1px solid rgba(244, 239, 235, 0.15);
+      display: block;
+    }
+
+    .item-title-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .item-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.8125rem;
+      color: var(--text-inverse);
+      letter-spacing: 0.02em;
+    }
+
+    .item-tag {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      color: var(--text-inverse-muted);
+    }
+
+    .item-price-pill {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: #2ED573;
+    }
+
+    .sizes-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+    }
+
+    .size-badge-micro {
+      font-family: var(--font-mono);
+      font-size: 0.5625rem;
+      font-weight: 700;
+      padding: 2px 5px;
+      background: rgba(244, 239, 235, 0.1);
+      border-radius: 3px;
+      color: var(--text-inverse);
+    }
+
+    /* Stock Toggle Switch */
+    .stock-toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 38px;
+      height: 20px;
+    }
+
+    .stock-toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background-color: rgba(244, 239, 235, 0.2);
+      transition: 200ms;
+      border-radius: 20px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 200ms;
+      border-radius: 50%;
+    }
+
+    input:checked + .toggle-slider {
+      background-color: #2ED573;
+    }
+
+    input:checked + .toggle-slider:before {
+      transform: translateX(18px);
+    }
+
+    /* Form Styles */
+    .admin-form-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+    }
+
+    .admin-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .admin-field label {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-inverse-muted);
+    }
+
+    .admin-input,
+    .admin-textarea,
+    .admin-select {
+      background: rgba(7, 25, 17, 0.85);
+      border: 1px solid rgba(244, 239, 235, 0.2);
+      border-radius: 6px;
+      padding: 0.65rem 0.85rem;
+      color: var(--text-inverse);
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      transition: all 150ms ease;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .admin-textarea {
+      min-height: 80px;
+      resize: vertical;
+      line-height: 1.4;
+    }
+
+    .admin-input:focus,
+    .admin-textarea:focus,
+    .admin-select:focus {
+      border-color: #2ED573;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(46, 213, 115, 0.2);
+    }
+
+    /* Real File Upload Dropzone */
+    .file-upload-dropzone {
+      border: 2px dashed rgba(244, 239, 235, 0.25);
+      border-radius: 8px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      background: rgba(7, 25, 17, 0.5);
+      cursor: pointer;
+      transition: all 150ms ease;
+    }
+
+    .file-upload-dropzone:hover {
+      border-color: #2ED573;
+      background: rgba(46, 213, 115, 0.04);
+    }
+
+    .upload-icon-box {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .upload-hint {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--text-inverse-muted);
+    }
+
+    .uploaded-previews-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+      min-height: 48px;
+    }
+
+    .preview-thumb-card {
+      position: relative;
+      width: 78px;
+      height: 98px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(244, 239, 235, 0.2);
+      background: rgba(11, 36, 25, 0.85);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      transition: transform 150ms ease, border-color 150ms ease;
+      flex-shrink: 0;
+    }
+
+    .preview-thumb-card:hover {
+      transform: translateY(-2px);
+      border-color: #2ED573;
+    }
+
+    .preview-thumb-card.is-cover {
+      border: 1.5px solid #2ED573;
+      box-shadow: 0 0 12px rgba(46, 213, 115, 0.35);
+    }
+
+    .preview-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .preview-thumb-badge {
+      position: absolute;
+      bottom: 4px;
+      left: 4px;
+      right: 4px;
+      background: rgba(7, 25, 17, 0.92);
+      color: #2ED573;
+      font-family: var(--font-mono);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-align: center;
+      padding: 2px 0;
+      border-radius: 3px;
+      text-transform: uppercase;
+      pointer-events: none;
+      border: 1px solid rgba(46, 213, 115, 0.4);
+    }
+
+    .preview-thumb-remove {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(231, 76, 60, 0.92);
+      color: #FFFFFF;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1;
+      padding: 0;
+      transition: all 120ms ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .preview-thumb-remove:hover {
+      background: #E74C3C;
+      transform: scale(1.15);
+    }
+
+    .checkbox-sizes-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.25rem;
+    }
+
+    .checkbox-size-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.35rem 0.65rem;
+      background: rgba(244, 239, 235, 0.06);
+      border: 1px solid rgba(244, 239, 235, 0.15);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 150ms ease;
+    }
+
+    .checkbox-size-label:has(input:checked) {
+      background: rgba(46, 213, 115, 0.15);
+      border-color: #2ED573;
+      color: #2ED573;
+      font-weight: 700;
+    }
+
+    /* Showroom Media Gallery Grid */
+    .showroom-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .showroom-gallery-card {
+      background: rgba(7, 25, 17, 0.75);
+      border: 1px solid rgba(244, 239, 235, 0.15);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 200ms ease;
+      position: relative;
+    }
+
+    .showroom-gallery-card:hover {
+      border-color: #2ED573;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .showroom-gallery-card.is-primary-cover {
+      border-color: #2ED573;
+      box-shadow: 0 0 16px rgba(46, 213, 115, 0.2);
+    }
+
+    .showroom-card-img-wrap {
+      width: 100%;
+      height: 200px;
+      background: #153D2C;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .showroom-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 300ms ease;
+    }
+
+    .showroom-gallery-card:hover .showroom-card-img {
+      transform: scale(1.03);
+    }
+
+    .showroom-cover-tag {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #2ED573;
+      color: #071911;
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .showroom-index-tag {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(7, 25, 17, 0.85);
+      color: #F4EFEB;
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      padding: 3px 7px;
+      border-radius: 4px;
+      border: 1px solid rgba(244, 239, 235, 0.2);
+    }
+
+    .showroom-card-body {
+      padding: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .showroom-url-text {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--text-inverse-muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .showroom-card-actions {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    /* Modal Styles */
+    .admin-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 25, 17, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .admin-modal-overlay.is-open {
+      display: flex;
+    }
+
+    .admin-modal-card {
+      background: #0B2419;
+      border: 1px solid rgba(244, 239, 235, 0.2);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 580px;
+      padding: 2rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    /* ==========================================
+       AUTHENTICATION GATEWAY MODAL (SLEEK BRUTALIST)
+       ========================================== */
+    .auth-gate-overlay {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 50% 30%, rgba(11, 36, 25, 0.98) 0%, rgba(5, 18, 12, 0.99) 100%);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .auth-gate-overlay.is-hidden {
+      display: none;
+    }
+
+    .auth-gate-card {
+      background: #0B2419;
+      border: 1px solid rgba(244, 239, 235, 0.25);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 440px;
+      padding: 2.75rem 2.25rem;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.75);
+      position: relative;
+    }
+
+    .auth-gate-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #2ED573, transparent);
+    }
+
+    .auth-gate-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .auth-gate-logo {
+      font-family: var(--font-gothic), 'UnifrakturCook', serif;
+      font-size: 2.75rem;
+      color: #F4EFEB;
+      display: block;
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+
+    .auth-gate-subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      color: #2ED573;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .auth-gate-meta {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      color: var(--text-inverse-muted);
+      margin-top: 4px;
+    }
+
+    .auth-error-banner {
+      background: rgba(231, 76, 60, 0.15);
+      border: 1px solid rgba(231, 76, 60, 0.4);
+      border-radius: 6px;
+      padding: 0.65rem 0.85rem;
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: #FF7675;
+      margin-bottom: 1.25rem;
+      display: none;
+      line-height: 1.4;
+    }
+
+    .auth-error-banner.is-visible {
+      display: block;
+    }
+
+    /* Toast Notification */
+    .admin-toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #2ED573;
+      color: #071911;
+      padding: 0.85rem 1.5rem;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 10000;
+      pointer-events: none;
+    }
+
+    .admin-toast.is-visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 1024px) {
+      .admin-layout-grid {
+        grid-template-columns: 1fr;
+      }
+      .admin-metrics-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .admin-metrics-bar {
+        grid-template-columns: 1fr;
+      }
+      .form-row-2 {
+        grid-template-columns: 1fr;
+      }
+      .auth-gate-card {
+        padding: 2rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       1. HARDENED ADMIN AUTHENTICATION GATEWAY
+       ========================================== -->
+  <div class="auth-gate-overlay" id="auth-gate-modal">
+    <div class="auth-gate-card">
+      <div class="auth-gate-header">
+        <span class="auth-gate-logo">hazel</span>
+        <div class="auth-gate-subtitle">ATELIER STUDIO // RESTRICTED ACCESS</div>
+        <div class="auth-gate-meta">CAIRO METROPOLITAN • CLOUD SECURE GATEWAY</div>
+      </div>
+
+      <div class="auth-error-banner" id="auth-error-banner"></div>
+
+      <form id="admin-auth-form" class="admin-form-grid">
+        <div class="admin-field">
+          <label for="auth-email">STUDIO EMAIL *</label>
+          <input type="email" class="admin-input" id="auth-email" required placeholder="admin@hazel-atelier.com" autocomplete="email">
+        </div>
+
+        <div class="admin-field">
+          <label for="auth-password">SECURITY KEY / PASSWORD *</label>
+          <input type="password" class="admin-input" id="auth-password" required placeholder="••••••••••••" autocomplete="current-password">
+        </div>
+
+        <button type="submit" class="btn-portal btn-portal-primary" style="width: 100%; justify-content: center; padding: 0.9rem; margin-top: 0.5rem;" id="btn-auth-submit">
+          <span>ENTER STUDIO ATELIER ⚡</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       2. AUTHENTICATED ADMIN APP SHELL
+       ========================================== -->
+  <div id="admin-app-shell" style="display: none; flex-direction: column; min-height: 100vh;">
+
+    <!-- Admin Navigation Header -->
+    <header class="admin-header">
+      <div class="container">
+        <div class="admin-header-inner">
+          
+          <div class="admin-brand-group">
+            <a href="index.html" class="brand-wordmark-link wordmark-inverse" aria-label="hazel store">
+              <span style="font-family: var(--font-gothic), 'UnifrakturCook', 'Pirata One', serif; font-size: 1.85rem; color: #F4EFEB; font-weight: 700; line-height: 1;">hazel</span>
+            </a>
+            <span class="admin-title-badge">SUPABASE CLOUD CMS // ATELIER CONTROL</span>
+          </div>
+
+          <div class="admin-header-actions">
+            <!-- Active Admin Badge -->
+            <div class="auth-user-pill" id="auth-user-badge">
+              <span>●</span>
+              <span id="auth-user-email">ADMINISTRATOR</span>
+            </div>
+
+            <button type="button" class="cloud-status-pill" id="btn-cloud-modal-trigger" title="Configure Supabase Database & Storage">
+              <span class="cloud-status-dot"></span>
+              <span id="cloud-status-text">CONNECT SUPABASE ⚡</span>
+            </button>
+
+            <span class="cairo-live-clock badge-tag" style="background: rgba(244,239,235,0.08); color: var(--text-inverse);">CAIRO LOCAL: --:--:--</span>
+            
+            <a href="index.html" class="btn-portal btn-portal-primary" target="_blank">
+              <span>VIEW STOREFRONT ↗</span>
+            </a>
+
+            <!-- Logout / Lock Button -->
+            <button type="button" class="btn-portal btn-portal-danger" id="btn-auth-logout" title="Lock Atelier & Sign Out">
+              <span>LOCK 🔒</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container" style="flex: 1; padding-bottom: 3rem;">
+      
+      <!-- Tab Navigation: Inventory vs Settings vs Showroom Media vs SQL -->
+      <nav class="admin-nav-tabs">
+        <button type="button" class="admin-tab-btn is-active" id="tab-btn-inventory">📦 DROP 004 INVENTORY</button>
+        <button type="button" class="admin-tab-btn" id="tab-btn-settings">🏛️ LIVE SITE SETTINGS CMS</button>
+        <button type="button" class="admin-tab-btn" id="tab-btn-showroom">📸 FLAGSHIP SHOWROOM MEDIA</button>
+        <button type="button" class="admin-tab-btn" id="tab-btn-sql">📄 SUPABASE SQL SCHEMA</button>
+      </nav>
+
+      <!-- ==========================================
+           TAB 1: INVENTORY & CATALOG STUDIO
+           ========================================== -->
+      <div class="tab-pane" id="pane-inventory">
+        
+        <!-- Top Overview Metrics -->
+        <div class="admin-metrics-bar">
+          <div class="metric-card">
+            <span class="metric-label">TOTAL GARMENTS</span>
+            <span class="metric-val" id="metric-total-items">4</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-label">ACTIVE IN STOCK</span>
+            <span class="metric-val accent" id="metric-active-stock">4</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-label">CATALOG VALUATION</span>
+            <span class="metric-val" id="metric-total-val">11,500 EGP</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-label">AVERAGE UNIT PRICE</span>
+            <span class="metric-val" id="metric-avg-price">2,875 EGP</span>
+          </div>
+        </div>
+
+        <!-- Action Toolbar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button type="button" class="btn-portal btn-portal-outline" id="btn-copy-json">
+              <span>📋 COPY UPDATED JSON</span>
+            </button>
+            <button type="button" class="btn-portal btn-portal-outline" id="btn-download-json">
+              <span>💾 DOWNLOAD products.json</span>
+            </button>
+          </div>
+
+          <div style="display: flex; gap: 0.5rem; align-items: center;">
+            <button type="button" class="btn-portal btn-portal-danger" id="btn-reset-defaults">
+              <span>🔄 RESET TO DEFAULT CAPSULE</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2-Column Studio Layout -->
+        <div class="admin-layout-grid">
+          
+          <!-- Left: Active Inventory Table -->
+          <section class="admin-panel-card">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">DROP 004 INVENTORY ARCHIVE</h2>
+                <p class="body-sm" style="color: var(--text-inverse-muted); font-size: 12px; margin-top: 3px;">
+                  Synced with Supabase Cloud Database and synced with the storefront in real-time.
+                </p>
+              </div>
+              <span class="badge-tag tag-live" id="inventory-count-badge">4 ACTIVE</span>
+            </div>
+
+            <div class="admin-table-wrapper">
+              <table class="admin-table" id="inventory-table">
+                <thead>
+                  <tr>
+                    <th>PIECE</th>
+                    <th>DETAILS &amp; SPEC</th>
+                    <th>PRICE</th>
+                    <th>SIZES</th>
+                    <th>STOCK</th>
+                    <th>ACTION</th>
+                  </tr>
+                </thead>
+                <tbody id="inventory-table-body">
+                  <!-- Populated Dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Right: Studio Form with Real File Upload -->
+          <section class="admin-panel-card">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title" id="form-heading">ADD / EDIT GARMENT</h2>
+                <p class="body-sm" style="color: var(--text-inverse-muted); font-size: 12px; margin-top: 3px;">
+                  Upload campaign imagery directly to Supabase Storage &amp; update catalog.
+                </p>
+              </div>
+            </div>
+
+            <form class="admin-form-grid" id="product-studio-form">
+              <input type="hidden" id="form-product-id" value="">
+
+              <div class="admin-field">
+                <label for="form-title">GARMENT TITLE *</label>
+                <input type="text" class="admin-input" id="form-title" required placeholder="e.g. PERTEX BALACLAVA PUFFER JACKET">
+              </div>
+
+              <div class="form-row-2">
+                <div class="admin-field">
+                  <label for="form-category">CATEGORY *</label>
+                  <select class="admin-select" id="form-category" required>
+                    <option value="Outerwear">Outerwear</option>
+                    <option value="Knitwear">Knitwear</option>
+                    <option value="Sets & Tracksuits">Sets &amp; Tracksuits</option>
+                    <option value="Bottoms & Denim">Bottoms &amp; Denim</option>
+                    <option value="Hoodies & Sweats">Hoodies &amp; Sweats</option>
+                    <option value="T-Shirts">T-Shirts</option>
+                    <option value="Accessories">Accessories</option>
+                  </select>
+                </div>
+
+                <div class="admin-field">
+                  <label for="form-price">PRICE IN EGP *</label>
+                  <input type="number" class="admin-input" id="form-price" required placeholder="e.g. 3850" min="100" step="50">
+                </div>
+              </div>
+
+              <div class="admin-field">
+                <label for="form-tag">TEXTILE SPEC / TAG *</label>
+                <input type="text" class="admin-input" id="form-tag" required placeholder="e.g. [ HEAVY INSULATION // TECHNICAL NYLON ]">
+              </div>
+
+              <!-- Real File Upload to Supabase Storage -->
+              <div class="admin-field">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                  <label style="margin: 0;">CAMPAIGN MEDIA GALLERY (MULTI-IMAGE UPLOAD)</label>
+                  <span id="product-images-count" style="font-family: var(--font-mono); font-size: 11px; color: #2ED573; font-weight: 700;">0 PHOTOS STAGED</span>
+                </div>
+                <div class="file-upload-dropzone" id="file-dropzone" onclick="document.getElementById('form-file-upload').click()">
+                  <input type="file" id="form-file-upload" accept="image/*" multiple style="display: none;">
+                  <div class="upload-icon-box">☁️ 📸</div>
+                  <div style="font-family: var(--font-display); font-weight: 700; font-size: 13px;">CLICK TO CHOOSE OR DRAG &amp; DROP MULTIPLE IMAGES</div>
+                  <div class="upload-hint">Uploads directly to Supabase Storage bucket (`product-media/products/`)</div>
+                </div>
+                <div class="uploaded-previews-row" id="upload-previews-container"></div>
+              </div>
+
+              <!-- Direct URL / Path Fallback Fields (Auto-synced from staged images) -->
+              <div class="form-row-2">
+                <div class="admin-field">
+                  <label for="form-primary-img">PRIMARY (COVER) IMAGE URL *</label>
+                  <input type="text" class="admin-input" id="form-primary-img" required placeholder="./assets/products/puffer-front.jpg" value="./assets/products/puffer-front.jpg">
+                </div>
+
+                <div class="admin-field">
+                  <label for="form-secondary-img">SECONDARY (FLIP) IMAGE</label>
+                  <input type="text" class="admin-input" id="form-secondary-img" placeholder="./assets/products/puffer-back.jpg">
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="admin-field">
+                  <label for="form-status">STATUS BADGE TEXT</label>
+                  <input type="text" class="admin-input" id="form-status" placeholder="e.g. LOW STOCK / DROP 004" value="DROP 004 // ACTIVE">
+                </div>
+
+                <div class="admin-field">
+                  <label for="form-status-type">BADGE ACCENT</label>
+                  <select class="admin-select" id="form-status-type">
+                    <option value="badge-warning">Amber (Low Stock / Warning)</option>
+                    <option value="badge-exclusive">Purple (Exclusive Allocation)</option>
+                    <option value="badge-limited">Blue (Limited Drop)</option>
+                    <option value="badge-restock">Green (Restock Completed)</option>
+                    <option value="tag-live">Emerald (Live / Active)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Sizing Checkboxes -->
+              <div class="admin-field">
+                <label>AVAILABLE SIZES *</label>
+                <div class="checkbox-sizes-grid">
+                  <label class="checkbox-size-label"><input type="checkbox" name="sizes" value="S" checked> S</label>
+                  <label class="checkbox-size-label"><input type="checkbox" name="sizes" value="M" checked> M</label>
+                  <label class="checkbox-size-label"><input type="checkbox" name="sizes" value="L" checked> L</label>
+                  <label class="checkbox-size-label"><input type="checkbox" name="sizes" value="XL"> XL</label>
+                  <label class="checkbox-size-label"><input type="checkbox" name="sizes" value="XXL"> XXL</label>
+                  <label class="checkbox-size-label"><input type="checkbox" name="sizes" value="30"> 30</label>
+                  <label class="checkbox-size-label"><input type="checkbox" name="sizes" value="32"> 32</label>
+                  <label class="checkbox-size-label"><input type="checkbox" name="sizes" value="34"> 34</label>
+                  <label class="checkbox-size-label"><input type="checkbox" name="sizes" value="36"> 36</label>
+                </div>
+              </div>
+
+              <!-- In-Stock Toggle -->
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0;">
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase;">IN STOCK &amp; ALLOCATED:</span>
+                <label class="stock-toggle-switch">
+                  <input type="checkbox" id="form-in-stock" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+
+              <!-- Form Actions -->
+              <div style="display: flex; gap: 0.75rem; margin-top: 0.5rem;">
+                <button type="submit" class="btn-portal btn-portal-primary" style="flex: 1; padding: 0.85rem;" id="btn-save-product">
+                  <span>SAVE TO CLOUD &amp; SYNC</span>
+                </button>
+                <button type="button" class="btn-portal btn-portal-outline" id="btn-clear-form">
+                  <span>CLEAR</span>
+                </button>
+              </div>
+            </form>
+          </section>
+
+        </div>
+
+      </div>
+
+      <!-- ==========================================
+           TAB 2: LIVE SITE SETTINGS CMS (TEXT EDITOR)
+           ========================================== -->
+      <div class="tab-pane" id="pane-settings" style="display: none;">
+        <section class="admin-panel-card" style="max-width: 900px; margin: 0 auto;">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">LIVE STOREFRONT EDITORIAL CMS</h2>
+              <p class="body-sm" style="color: var(--text-inverse-muted); font-size: 12px; margin-top: 3px;">
+                Directly customize headline typography, ticker marquee announcements, showroom specs, and concierge details.
+              </p>
+            </div>
+          </div>
+
+          <form class="admin-form-grid" id="site-settings-form">
+            
+            <div class="admin-field">
+              <label for="settings-ticker">TOP TICKER MARQUEE ANNOUNCEMENT</label>
+              <input type="text" class="admin-input" id="settings-ticker" required placeholder="DROP 004 IS LIVE • CAIRO FLAGSHIP SHOWROOM OPEN NOW...">
+            </div>
+
+            <div class="form-row-2">
+              <div class="admin-field">
+                <label for="settings-hero-headline">HERO MAIN HEADLINE (H1)</label>
+                <input type="text" class="admin-input" id="settings-hero-headline" required placeholder="RAW CUTS. HIGH DENSITY. NO COMPROMISE.">
+              </div>
+
+              <div class="admin-field">
+                <label for="settings-vip-alert">VIP DROP ACCESS BADGE</label>
+                <input type="text" class="admin-input" id="settings-vip-alert" placeholder="ACTIVE // CAIRO METROPOLITAN">
+              </div>
+            </div>
+
+            <div class="admin-field">
+              <label for="settings-hero-subhead">HERO MANIFESTO / SUBHEADLINE</label>
+              <textarea class="admin-textarea" id="settings-hero-subhead" required placeholder="Forged in Cairo. Heavyweight textiles, architectural streetwear silhouettes..."></textarea>
+            </div>
+
+            <!-- Showroom Physical Specs -->
+            <div class="admin-field">
+              <label for="settings-showroom-address">SHOWROOM PHYSICAL ADDRESS &amp; LOCATION</label>
+              <input type="text" class="admin-input" id="settings-showroom-address" required placeholder="Zahraa El Maadi, 50th Street, Next to Ezz El Menoufy — Cairo, Egypt">
+            </div>
+
+            <div class="form-row-2">
+              <div class="admin-field">
+                <label for="settings-showroom-hours">SHOWROOM OPERATING HOURS</label>
+                <input type="text" class="admin-input" id="settings-showroom-hours" required placeholder="Mon – Sun: 14:00 – 23:00 CAI">
+              </div>
+
+              <div class="admin-field">
+                <label for="settings-showroom-coords">SHOWROOM COORDINATES</label>
+                <input type="text" class="admin-input" id="settings-showroom-coords" required placeholder="30.0444° N, 31.2357° E">
+              </div>
+            </div>
+
+            <!-- Concierge / Hotline Numbers & Attribution -->
+            <div class="form-row-2">
+              <div class="admin-field">
+                <label for="settings-whatsapp-number">SHOWROOM &amp; CONCIERGE WHATSAPP HOTLINE</label>
+                <input type="text" class="admin-input" id="settings-whatsapp-number" required placeholder="201282350233" value="201282350233">
+              </div>
+
+              <div class="admin-field">
+                <label for="settings-developer-credit">DEVELOPER ATTRIBUTION TITLE</label>
+                <input type="text" class="admin-input" id="settings-developer-credit" required placeholder="DEVELOPED BY MOHAMED TAMER">
+              </div>
+            </div>
+
+            <div class="admin-field">
+              <label for="settings-developer-phone">DEVELOPER / DIRECT PHONE</label>
+              <input type="text" class="admin-input" id="settings-developer-phone" required placeholder="+201129333453">
+            </div>
+
+            <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+              <button type="submit" class="btn-portal btn-portal-primary" style="padding: 0.85rem 1.5rem;">
+                <span>SAVE SITE SETTINGS TO CLOUD ✓</span>
+              </button>
+              <button type="button" class="btn-portal btn-portal-outline" id="btn-reload-settings">
+                <span>RELOAD LATEST</span>
+              </button>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <!-- ==========================================
+           TAB 3: FLAGSHIP SHOWROOM MEDIA UPLOADER
+           ========================================== -->
+      <div class="tab-pane" id="pane-showroom" style="display: none;">
+        <section class="admin-panel-card" style="max-width: 1080px; margin: 0 auto;">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">FLAGSHIP SHOWROOM MEDIA STUDIO</h2>
+              <p class="body-sm" style="color: var(--text-inverse-muted); font-size: 12px; margin-top: 3px;">
+                Upload authentic photography of the Zahraa El Maadi physical showroom directly from your phone/device. Images are stored in Supabase Storage (`showroom/`) and render live on Section 5.
+              </p>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+              <span class="badge-tag tag-live" id="showroom-count-badge">1 PHOTO</span>
+            </div>
+          </div>
+
+          <!-- Multi-File Uploader Dropzone -->
+          <div class="file-upload-dropzone" id="showroom-dropzone" onclick="document.getElementById('showroom-file-input').click()" style="padding: 2.25rem 1.5rem;">
+            <input type="file" id="showroom-file-input" accept="image/*" multiple style="display: none;">
+            <div class="upload-icon-box" style="font-size: 2.25rem;">🏛️ 📸</div>
+            <div style="font-family: var(--font-display); font-weight: 800; font-size: 1rem; color: var(--text-inverse); margin-top: 4px;">
+              CLICK TO CHOOSE PHOTOS OR DRAG &amp; DROP STORE IMAGES
+            </div>
+            <div class="upload-hint" style="margin-top: 4px;">
+              Supports Multi-File Upload • Saves to Supabase Bucket `product-media/showroom/`
+            </div>
+          </div>
+
+          <!-- Add Image by URL Bar -->
+          <div style="margin-top: 1.25rem; display: flex; gap: 0.5rem; align-items: center;">
+            <input type="text" class="admin-input" id="showroom-url-input" placeholder="Or enter direct image URL (e.g. ./assets/cairo-showroom.jpg or https://...)" style="flex: 1;">
+            <button type="button" class="btn-portal btn-portal-accent" id="btn-add-showroom-url" style="white-space: nowrap;">
+              <span>+ ADD URL</span>
+            </button>
+          </div>
+
+          <!-- Actions Toolbar -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; border-top: 1px solid rgba(244, 239, 235, 0.1); padding-top: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+            <div style="display: flex; gap: 0.5rem;">
+              <button type="button" class="btn-portal btn-portal-primary" id="btn-save-showroom-gallery">
+                <span>SAVE GALLERY TO CLOUD ✓</span>
+              </button>
+              <button type="button" class="btn-portal btn-portal-outline" id="btn-reset-showroom-defaults">
+                <span>RESET TO DEFAULT PHOTO</span>
+              </button>
+            </div>
+            <a href="index.html#store-experience" class="btn-portal btn-portal-outline" target="_blank">
+              <span>PREVIEW ON STOREFRONT ↗</span>
+            </a>
+          </div>
+
+          <!-- Interactive Gallery Cards Grid -->
+          <div class="showroom-gallery-grid" id="showroom-gallery-grid">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+      </div>
+
+      <!-- ==========================================
+           TAB 4: SUPABASE SQL SCHEMA VIEWER
+           ========================================== -->
+      <div class="tab-pane" id="pane-sql" style="display: none;">
+        <section class="admin-panel-card" style="max-width: 900px; margin: 0 auto;">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">SUPABASE SQL SETUP SCRIPT</h2>
+              <p class="body-sm" style="color: var(--text-inverse-muted); font-size: 12px; margin-top: 3px;">
+                Copy and execute this script inside your Supabase Project SQL Editor to build all tables, security policies, and storage buckets.
+              </p>
+            </div>
+            <button type="button" class="btn-portal btn-portal-primary" id="btn-copy-sql">COPY SQL SCRIPT</button>
+          </div>
+
+          <pre class="json-code-block" id="sql-preview-output" style="max-height: 480px; color: #55E6C1;"><code>-- Loading SQL schema...</code></pre>
+        </section>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ==========================================
+       SUPABASE CLOUD CONFIGURATION MODAL
+       ========================================== -->
+  <div class="admin-modal-overlay" id="supabase-config-modal">
+    <div class="admin-modal-card">
+      <div class="panel-header" style="margin-bottom: 1.5rem;">
+        <div>
+          <h3 class="panel-title">CONNECT SUPABASE CLOUD</h3>
+          <p class="body-sm" style="color: var(--text-inverse-muted); font-size: 12px; margin-top: 3px;">
+            Link your free Supabase database &amp; storage instance.
+          </p>
+        </div>
+        <button type="button" class="btn-portal btn-portal-outline" id="btn-close-modal" style="padding: 4px 8px;">✕</button>
+      </div>
+
+      <form id="supabase-connect-form" class="admin-form-grid">
+        <div class="admin-field">
+          <label for="cfg-supabase-url">SUPABASE PROJECT URL *</label>
+          <input type="url" class="admin-input" id="cfg-supabase-url" placeholder="https://your-project-id.supabase.co" required>
+        </div>
+
+        <div class="admin-field">
+          <label for="cfg-supabase-anon-key">SUPABASE ANON / PUBLIC API KEY *</label>
+          <input type="text" class="admin-input" id="cfg-supabase-anon-key" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6..." required>
+        </div>
+
+        <div style="background: rgba(46,213,115,0.06); border: 1px solid rgba(46,213,115,0.2); border-radius: 8px; padding: 0.85rem; font-family: var(--font-mono); font-size: 11px; line-height: 1.5; color: var(--text-inverse-muted);">
+          <strong style="color: #2ED573;">FREE SUPABASE SETUP GUIDE:</strong><br>
+          1. Create a free project at <a href="https://supabase.com" target="_blank" rel="noopener" style="color: #2ED573; text-decoration: underline;">supabase.com</a>.<br>
+          2. Go to <strong>Project Settings → API</strong> and copy your Project URL &amp; anon public key.<br>
+          3. Run the SQL script from Tab 4 in the <strong>SQL Editor</strong>.
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; margin-top: 0.5rem;">
+          <button type="submit" class="btn-portal btn-portal-primary" style="flex: 1; padding: 0.85rem;">
+            <span>SAVE &amp; CONNECT CLOUD</span>
+          </button>
+          <button type="button" class="btn-portal btn-portal-danger" id="btn-disconnect-supabase">
+            <span>DISCONNECT</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Feedback -->
+  <div class="admin-toast" id="admin-toast">ACTION COMPLETED ✓</div>
+
+  <!-- Official Supabase JS SDK via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Central Supabase Client & Engine Wrapper -->
+  <script src="./js/supabase-config.js"></script>
+
+  <!-- Admin JavaScript Logic -->
+  <script>
+    const INITIAL_DEFAULT_PRODUCTS = [
+      {
+        "id": "prod-01",
+        "title": "PERTEX BALACLAVA PUFFER JACKET",
+        "category": "Outerwear",
+        "tag": "[ HEAVY INSULATION // TECHNICAL NYLON ]",
+        "price": 3850,
+        "status": "LOW STOCK / DROP 004",
+        "statusType": "badge-warning",
+        "primaryImage": "./assets/products/puffer-front.jpg",
+        "secondaryImage": "./assets/products/puffer-back.jpg",
+        "images": [
+          "./assets/products/puffer-front.jpg",
+          "./assets/products/puffer-back.jpg"
+        ],
+        "sizes": ["S", "M", "L", "XL"],
+        "inStock": true
+      },
+      {
+        "id": "prod-02",
+        "title": "GRADIENT MOHAIR ARROW SWEATER",
+        "category": "Knitwear",
+        "tag": "[ 450 GSM BRUSHED MOHAIR BLEND ]",
+        "price": 2450,
+        "status": "EXCLUSIVE ALLOCATION",
+        "statusType": "badge-exclusive",
+        "primaryImage": "./assets/products/knit-front.jpg",
+        "secondaryImage": "./assets/products/knit-back.jpg",
+        "images": [
+          "./assets/products/knit-front.jpg",
+          "./assets/products/knit-back.jpg"
+        ],
+        "sizes": ["M", "L", "XL"],
+        "inStock": true
+      },
+      {
+        "id": "prod-03",
+        "title": "TECHNICAL UMBRO ARCHIVE TRACKSUIT",
+        "category": "Sets & Tracksuits",
+        "tag": "[ WATER-REPELLENT NYLON SET ]",
+        "price": 2950,
+        "status": "LIMITED DROP",
+        "statusType": "badge-limited",
+        "primaryImage": "./assets/products/tracksuit.jpg",
+        "secondaryImage": "./assets/hero-campaign.jpg",
+        "images": [
+          "./assets/products/tracksuit.jpg",
+          "./assets/hero-campaign.jpg"
+        ],
+        "sizes": ["S", "M", "L"],
+        "inStock": true
+      },
+      {
+        "id": "prod-04",
+        "title": "GOTHIC APPLIQUÉ HEAVYWEIGHT DENIM",
+        "category": "Bottoms & Denim",
+        "tag": "[ 14 OZ RAW BLACK DENIM // EMBROIDERED ]",
+        "price": 2250,
+        "status": "RESTOCK COMPLETED",
+        "statusType": "badge-restock",
+        "primaryImage": "./assets/products/denim-detail.jpg",
+        "secondaryImage": "./assets/tactical-bags.jpg",
+        "images": [
+          "./assets/products/denim-detail.jpg",
+          "./assets/tactical-bags.jpg"
+        ],
+        "sizes": ["30", "32", "34", "36"],
+        "inStock": true
+      }
+    ];
+
+    const DEFAULT_SETTINGS = {
+      ticker_text: 'DROP 004 IS LIVE • CAIRO FLAGSHIP SHOWROOM OPEN NOW • SHIPPING AVAILABLE FOR CAIRO & GIZA • خدمة الشحن متوفرة للقاهرة والجيزة • INSTAPAY & VODAFONE CASH ACCEPTED',
+      hero_headline: 'RAW CUTS. HIGH DENSITY. NO COMPROMISE.',
+      hero_subheadline: 'Forged in Cairo. Heavyweight textiles, architectural streetwear silhouettes, and unfiltered energy from the flagship showroom floor to the digital feed.',
+      showroom_hours: 'Mon – Sun: 14:00 – 23:00 CAI',
+      showroom_coords: '30.0444° N, 31.2357° E',
+      showroom_address: 'Zahraa El Maadi, 50th Street, Next to Ezz El Menoufy — Cairo, Egypt',
+      developer_credit: 'DEVELOPED BY MOHAMED TAMER',
+      developer_phone: '+201129333453',
+      whatsapp_number: '201282350233',
+      vip_alert_status: 'ACTIVE // CAIRO METROPOLITAN',
+      showroom_gallery: ['./assets/cairo-showroom.jpg']
+    };
+
+    let currentProducts = [];
+    let currentSettings = { ...DEFAULT_SETTINGS };
+    let isAuthenticated = false;
+
+    // Boot & Authentication Lifecycle
+    document.addEventListener('DOMContentLoaded', async () => {
+      initLiveClock();
+      loadSQLPreview();
+      initTabs();
+      initCloudModal();
+      initFileUpload();
+      initShowroomStudio();
+      await initAuth();
+    });
+
+    /**
+     * ==========================================================================
+     * 1. HARDENED ADMIN AUTHENTICATION GATEWAY LOGIC
+     * ==========================================================================
+     */
+    async function initAuth() {
+      const authForm = document.getElementById('admin-auth-form');
+      const errorBanner = document.getElementById('auth-error-banner');
+      const logoutBtn = document.getElementById('btn-auth-logout');
+
+      // Verify active Supabase session
+      let existingSession = null;
+      if (HazelSupabase.isSupabaseConfigured()) {
+        try {
+          existingSession = await HazelSupabase.getAdminSession();
+        } catch (e) {
+          console.warn('Session check error:', e);
+        }
+      }
+
+      if (existingSession && existingSession.user) {
+        unlockDashboard(existingSession.user.email);
+      } else {
+        lockDashboard();
+      }
+
+      // Listen for live auth state transitions
+      if (HazelSupabase.isSupabaseConfigured()) {
+        HazelSupabase.onAuthStateChange((event, session) => {
+          if (session && session.user) {
+            unlockDashboard(session.user.email);
+          } else {
+            lockDashboard();
+          }
+        });
+      }
+
+      // Handle Sign In Submission (Strict Supabase Auth Validation)
+      if (authForm) {
+        authForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const email = document.getElementById('auth-email').value.trim();
+          const password = document.getElementById('auth-password').value;
+          const submitBtn = document.getElementById('btn-auth-submit');
+
+          errorBanner.classList.remove('is-visible');
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<span>AUTHENTICATING WITH ATELIER CLOUD...</span>';
+
+          try {
+            if (!HazelSupabase.isSupabaseConfigured()) {
+              throw new Error('Supabase Cloud is not configured. Connect your Supabase project credentials first.');
+            }
+
+            const res = await HazelSupabase.signInAdmin(email, password);
+            if (res && res.user) {
+              unlockDashboard(res.user.email);
+              showToast(`ACCESS GRANTED: ${res.user.email} ✓`);
+            } else {
+              throw new Error('Invalid email or password. Access denied.');
+            }
+          } catch (err) {
+            console.error('Authentication rejected:', err);
+            errorBanner.textContent = err.message || 'Invalid credentials. Access restricted to authorized atelier personnel only.';
+            errorBanner.classList.add('is-visible');
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>ENTER STUDIO ATELIER ⚡</span>';
+          }
+        });
+      }
+
+      // Secure Logout / Lock Action
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', async () => {
+          if (confirm('Lock Atelier and sign out?')) {
+            if (HazelSupabase.isSupabaseConfigured()) {
+              try {
+                await HazelSupabase.signOutAdmin();
+              } catch (e) {
+                console.warn('Sign out error:', e);
+              }
+            }
+            sessionStorage.removeItem('hazel_admin_email');
+            lockDashboard();
+            showToast('ATELIER LOCKED 🔒');
+          }
+        });
+      }
+    }
+
+    function unlockDashboard(userEmail) {
+      isAuthenticated = true;
+      sessionStorage.setItem('hazel_admin_email', userEmail || 'ADMINISTRATOR');
+
+      const authGate = document.getElementById('auth-gate-modal');
+      const appShell = document.getElementById('admin-app-shell');
+      const userEmailEl = document.getElementById('auth-user-email');
+
+      if (authGate) authGate.classList.add('is-hidden');
+      if (appShell) appShell.style.display = 'flex';
+      if (userEmailEl) userEmailEl.textContent = userEmail || 'ADMIN';
+
+      initCMS();
+    }
+
+    function lockDashboard() {
+      isAuthenticated = false;
+      sessionStorage.removeItem('hazel_admin_email');
+
+      const authGate = document.getElementById('auth-gate-modal');
+      const appShell = document.getElementById('admin-app-shell');
+      const passwordInput = document.getElementById('auth-password');
+      const errorBanner = document.getElementById('auth-error-banner');
+
+      if (passwordInput) passwordInput.value = '';
+      if (errorBanner) errorBanner.classList.remove('is-visible');
+
+      if (authGate) authGate.classList.remove('is-hidden');
+      if (appShell) appShell.style.display = 'none';
+    }
+
+    /**
+     * ==========================================================================
+     * 2. TAB NAVIGATION CONTROLLER
+     * ==========================================================================
+     */
+    function initTabs() {
+      const tabs = [
+        { btn: document.getElementById('tab-btn-inventory'), pane: document.getElementById('pane-inventory') },
+        { btn: document.getElementById('tab-btn-settings'), pane: document.getElementById('pane-settings') },
+        { btn: document.getElementById('tab-btn-showroom'), pane: document.getElementById('pane-showroom') },
+        { btn: document.getElementById('tab-btn-sql'), pane: document.getElementById('pane-sql') }
+      ];
+
+      tabs.forEach(tab => {
+        if (!tab.btn) return;
+        tab.btn.addEventListener('click', () => {
+          tabs.forEach(t => {
+            if (t.btn) t.btn.classList.remove('is-active');
+            if (t.pane) t.pane.style.display = 'none';
+          });
+          tab.btn.classList.add('is-active');
+          if (tab.pane) tab.pane.style.display = 'block';
+        });
+      });
+    }
+
+    /**
+     * ==========================================================================
+     * 3. SUPABASE CLOUD MODAL CONFIG
+     * ==========================================================================
+     */
+    function initCloudModal() {
+      const modal = document.getElementById('supabase-config-modal');
+      const trigger = document.getElementById('btn-cloud-modal-trigger');
+      const closeBtn = document.getElementById('btn-close-modal');
+      const form = document.getElementById('supabase-connect-form');
+      const disconnectBtn = document.getElementById('btn-disconnect-supabase');
+
+      const urlInput = document.getElementById('cfg-supabase-url');
+      const keyInput = document.getElementById('cfg-supabase-anon-key');
+
+      function openModal() {
+        urlInput.value = localStorage.getItem('hazel_supabase_url') || '';
+        keyInput.value = localStorage.getItem('hazel_supabase_anon_key') || '';
+        modal.classList.add('is-open');
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+      }
+
+      if (trigger) trigger.addEventListener('click', openModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const url = urlInput.value.trim();
+          const key = keyInput.value.trim();
+
+          HazelSupabase.saveSupabaseConfig(url, key);
+          closeModal();
+          showToast('SUPABASE CREDENTIALS SAVED ✓ CONNECTING...');
+          await initCMS();
+        });
+      }
+
+      if (disconnectBtn) {
+        disconnectBtn.addEventListener('click', () => {
+          HazelSupabase.clearSupabaseConfig();
+          closeModal();
+          showToast('DISCONNECTED FROM SUPABASE');
+          updateCloudStatusBadge();
+          lockDashboard();
+        });
+      }
+    }
+
+    function updateCloudStatusBadge() {
+      const pill = document.getElementById('btn-cloud-modal-trigger');
+      const text = document.getElementById('cloud-status-text');
+      if (!pill || !text) return;
+
+      if (HazelSupabase.isSupabaseConfigured()) {
+        pill.classList.add('is-connected');
+        text.textContent = 'SUPABASE CLOUD: CONNECTED ✓';
+      } else {
+        pill.classList.remove('is-connected');
+        text.textContent = 'CONNECT SUPABASE ⚡';
+      }
+    }
+
+    /**
+     * ==========================================================================
+     * 4. INITIALIZE CMS DATA (INVENTORY, SETTINGS, SHOWROOM)
+     * ==========================================================================
+     */
+    async function initCMS() {
+      if (!isAuthenticated) return;
+
+      updateCloudStatusBadge();
+
+      // 1. Try Fetching from Supabase Cloud
+      if (HazelSupabase.isSupabaseConfigured()) {
+        try {
+          const cloudProducts = await HazelSupabase.fetchProductsFromCloud();
+          if (cloudProducts && cloudProducts.length > 0) {
+            currentProducts = cloudProducts;
+          }
+          const cloudSettings = await HazelSupabase.fetchSiteSettingsFromCloud();
+          if (cloudSettings) {
+            currentSettings = { ...currentSettings, ...cloudSettings };
+          }
+        } catch (e) {
+          console.warn('Could not sync with Supabase cloud', e);
+        }
+      }
+
+      // 2. Fallback to LocalStorage or Local JSON
+      if (!currentProducts || currentProducts.length === 0) {
+        try {
+          const localSaved = localStorage.getItem('hazel_custom_products');
+          if (localSaved) {
+            currentProducts = JSON.parse(localSaved);
+          } else {
+            const res = await fetch('./data/products.json');
+            if (res.ok) {
+              currentProducts = await res.json();
+            } else {
+              currentProducts = [...INITIAL_DEFAULT_PRODUCTS];
+            }
+          }
+        } catch (e) {
+          currentProducts = [...INITIAL_DEFAULT_PRODUCTS];
+        }
+      }
+
+      // 3. Fallback for Site Settings from LocalStorage
+      try {
+        const savedSettings = localStorage.getItem('hazel_site_settings');
+        if (savedSettings && !HazelSupabase.isSupabaseConfigured()) {
+          currentSettings = JSON.parse(savedSettings);
+        }
+      } catch (e) {}
+
+      // Ensure showroom gallery array exists
+      if (!Array.isArray(currentSettings.showroom_gallery) || currentSettings.showroom_gallery.length === 0) {
+        currentSettings.showroom_gallery = ['./assets/cairo-showroom.jpg'];
+      }
+
+      renderInventoryTable();
+      updateMetrics();
+      populateSiteSettingsForm();
+      renderShowroomStudioGallery();
+    }
+
+    /**
+     * ==========================================================================
+     * 5. TAB 1: INVENTORY TABLE & PRODUCT STUDIO
+     * ==========================================================================
+     */
+    function renderInventoryTable() {
+      const tbody = document.getElementById('inventory-table-body');
+      const badge = document.getElementById('inventory-count-badge');
+      if (!tbody) return;
+
+      if (badge) {
+        badge.textContent = `${currentProducts.filter(p => p.inStock).length} OF ${currentProducts.length} ACTIVE`;
+      }
+
+      tbody.innerHTML = currentProducts.map((p, idx) => {
+        const imgCount = Array.isArray(p.images) && p.images.length > 0 ? p.images.length : (p.secondaryImage ? 2 : 1);
+        return `
+        <tr data-id="${p.id}">
+          <td>
+            <div style="position: relative; width: 44px; height: 56px;">
+              <img src="${p.primaryImage}" alt="${p.title}" class="item-thumb-sm" onerror="this.src='./assets/products/puffer-front.jpg'" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+              ${imgCount > 1 ? `<span style="position: absolute; bottom: -4px; right: -4px; background: #071911; color: #2ED573; font-family: var(--font-mono); font-size: 8px; font-weight: 700; padding: 1px 4px; border-radius: 3px; border: 1px solid rgba(46, 213, 115, 0.4);">${imgCount} 📸</span>` : ''}
+            </div>
+          </td>
+          <td>
+            <div class="item-title-cell">
+              <span class="item-name">${p.title}</span>
+              <span class="item-tag">${p.tag || '[ HEAVYWEIGHT SILHOUETTE ]'}</span>
+              <span style="font-family: var(--font-mono); font-size: 10px; color: #2ED573;">[ ${p.category} // ${String(p.id).slice(0, 8)} // ${imgCount} PHOTO${imgCount === 1 ? '' : 'S'} ]</span>
+            </div>
+          </td>
+          <td>
+            <span class="item-price-pill">${Number(p.price).toLocaleString()} EGP</span>
+          </td>
+          <td>
+            <div class="sizes-pills-row">
+              ${(p.sizes || []).map(s => `<span class="size-badge-micro">${s}</span>`).join('')}
+            </div>
+          </td>
+          <td>
+            <label class="stock-toggle-switch">
+              <input type="checkbox" class="table-stock-toggle" data-idx="${idx}" ${p.inStock ? 'checked' : ''}>
+              <span class="toggle-slider"></span>
+            </label>
+          </td>
+          <td>
+            <div style="display: flex; gap: 6px;">
+              <button type="button" class="btn-portal btn-portal-outline btn-edit-item" data-idx="${idx}" style="padding: 4px 8px; font-size: 10px;">EDIT</button>
+              <button type="button" class="btn-portal btn-portal-danger btn-delete-item" data-idx="${idx}" style="padding: 4px 8px; font-size: 10px;">✕</button>
+            </div>
+          </td>
+        </tr>
+      `;
+      }).join('');
+
+      // Stock Toggle Action
+      tbody.querySelectorAll('.table-stock-toggle').forEach(chk => {
+        chk.addEventListener('change', async (e) => {
+          const idx = parseInt(e.target.dataset.idx, 10);
+          const p = currentProducts[idx];
+          if (!p) return;
+          p.inStock = e.target.checked;
+          
+          if (HazelSupabase.isSupabaseConfigured() && String(p.id).includes('-')) {
+            await HazelSupabase.toggleProductStockInCloud(p.id, p.inStock);
+          }
+          saveLocalState();
+          showToast(`STOCK STATUS UPDATED: ${p.title}`);
+        });
+      });
+
+      // Edit Item
+      tbody.querySelectorAll('.btn-edit-item').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = parseInt(btn.dataset.idx, 10);
+          populateFormForEdit(idx);
+        });
+      });
+
+      // Delete Item
+      tbody.querySelectorAll('.btn-delete-item').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const idx = parseInt(btn.dataset.idx, 10);
+          const p = currentProducts[idx];
+          if (confirm(`Remove "${p.title}" from catalog?`)) {
+            if (HazelSupabase.isSupabaseConfigured() && String(p.id).includes('-')) {
+              await HazelSupabase.deleteProductFromCloud(p.id);
+            }
+            currentProducts.splice(idx, 1);
+            saveLocalState();
+            showToast(`REMOVED: ${p.title}`);
+          }
+        });
+      });
+    }
+
+    function saveLocalState() {
+      localStorage.setItem('hazel_custom_products', JSON.stringify(currentProducts));
+      renderInventoryTable();
+      updateMetrics();
+    }
+
+    function updateMetrics() {
+      const totalItems = currentProducts.length;
+      const activeStock = currentProducts.filter(p => p.inStock).length;
+      const totalVal = currentProducts.reduce((sum, p) => sum + (Number(p.price) || 0), 0);
+      const avgPrice = totalItems > 0 ? Math.round(totalVal / totalItems) : 0;
+
+      const mTotal = document.getElementById('metric-total-items');
+      const mActive = document.getElementById('metric-active-stock');
+      const mVal = document.getElementById('metric-total-val');
+      const mAvg = document.getElementById('metric-avg-price');
+
+      if (mTotal) mTotal.textContent = totalItems;
+      if (mActive) mActive.textContent = activeStock;
+      if (mVal) mVal.textContent = `${totalVal.toLocaleString()} EGP`;
+      if (mAvg) mAvg.textContent = `${avgPrice.toLocaleString()} EGP`;
+    }
+
+    /**
+     * ==========================================================================
+     * STAGED MULTI-IMAGE GALLERY MANAGEMENT
+     * ==========================================================================
+     */
+    let stagedProductImages = [];
+
+    function renderStagedPreviews() {
+      const previewsContainer = document.getElementById('upload-previews-container');
+      const countBadge = document.getElementById('product-images-count');
+      if (!previewsContainer) return;
+
+      previewsContainer.innerHTML = '';
+
+      if (countBadge) {
+        countBadge.textContent = `${stagedProductImages.length} PHOTO${stagedProductImages.length === 1 ? '' : 'S'} STAGED`;
+      }
+
+      stagedProductImages.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = `preview-thumb-card ${index === 0 ? 'is-cover' : ''}`;
+
+        const imgSrc = item.type === 'file' ? item.previewUrl : item.url;
+
+        card.innerHTML = `
+          <img src="${imgSrc}" class="preview-thumb-img" alt="Garment Preview ${index + 1}" onerror="this.src='./assets/products/puffer-front.jpg'">
+          ${index === 0 ? '<span class="preview-thumb-badge">COVER</span>' : ''}
+          <button type="button" class="preview-thumb-remove" title="Remove photo" data-index="${index}">✕</button>
+        `;
+
+        const removeBtn = card.querySelector('.preview-thumb-remove');
+        removeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          stagedProductImages.splice(index, 1);
+          syncStagedUrlInputs();
+          renderStagedPreviews();
+        });
+
+        previewsContainer.appendChild(card);
+      });
+
+      syncStagedUrlInputs();
+    }
+
+    function syncStagedUrlInputs() {
+      const primaryInput = document.getElementById('form-primary-img');
+      const secondaryInput = document.getElementById('form-secondary-img');
+
+      if (stagedProductImages.length > 0) {
+        const first = stagedProductImages[0];
+        if (primaryInput) {
+          primaryInput.value = first.type === 'existing' ? first.url : (primaryInput.value || './assets/products/puffer-front.jpg');
+        }
+        if (stagedProductImages.length > 1) {
+          const second = stagedProductImages[1];
+          if (secondaryInput) {
+            secondaryInput.value = second.type === 'existing' ? second.url : (secondaryInput.value || '');
+          }
+        } else if (secondaryInput) {
+          secondaryInput.value = '';
+        }
+      }
+    }
+
+    function initFileUpload() {
+      const fileInput = document.getElementById('form-file-upload');
+      const dropzone = document.getElementById('file-dropzone');
+
+      if (!fileInput) return;
+
+      fileInput.addEventListener('change', (e) => {
+        const files = Array.from(e.target.files);
+        if (files.length === 0) return;
+
+        files.forEach(file => {
+          stagedProductImages.push({
+            type: 'file',
+            file: file,
+            previewUrl: URL.createObjectURL(file)
+          });
+        });
+
+        renderStagedPreviews();
+        showToast(`STAGED ${files.length} NEW PHOTO(S)`);
+        fileInput.value = '';
+      });
+
+      if (dropzone) {
+        ['dragenter', 'dragover'].forEach(eventName => {
+          dropzone.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dropzone.style.borderColor = '#2ED573';
+            dropzone.style.background = 'rgba(46, 213, 115, 0.08)';
+          }, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+          dropzone.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dropzone.style.borderColor = '';
+            dropzone.style.background = '';
+          }, false);
+        });
+
+        dropzone.addEventListener('drop', (e) => {
+          const dt = e.dataTransfer;
+          const files = Array.from(dt.files).filter(f => f.type.startsWith('image/'));
+          if (files.length === 0) return;
+
+          files.forEach(file => {
+            stagedProductImages.push({
+              type: 'file',
+              file: file,
+              previewUrl: URL.createObjectURL(file)
+            });
+          });
+
+          renderStagedPreviews();
+          showToast(`STAGED ${files.length} PHOTO(S) VIA DRAG & DROP`);
+        });
+      }
+    }
+
+    function populateFormForEdit(idx) {
+      const p = currentProducts[idx];
+      if (!p) return;
+
+      document.getElementById('form-heading').textContent = `EDIT: ${p.title}`;
+      document.getElementById('form-product-id').value = p.id;
+      document.getElementById('form-title').value = p.title;
+      document.getElementById('form-category').value = p.category || 'Outerwear';
+      document.getElementById('form-price').value = p.price;
+      document.getElementById('form-tag').value = p.tag || '';
+      document.getElementById('form-status').value = p.status || 'DROP 004 // ACTIVE';
+      document.getElementById('form-status-type').value = p.statusType || 'badge-warning';
+      document.getElementById('form-primary-img').value = p.primaryImage || '';
+      document.getElementById('form-secondary-img').value = p.secondaryImage || '';
+      document.getElementById('form-in-stock').checked = p.inStock !== false;
+
+      const checkboxes = document.querySelectorAll('input[name="sizes"]');
+      checkboxes.forEach(cb => {
+        cb.checked = (p.sizes || []).includes(cb.value);
+      });
+
+      // Hydrate staged images list from product
+      stagedProductImages = [];
+      let existingImgs = [];
+      if (Array.isArray(p.images) && p.images.length > 0) {
+        existingImgs = p.images.filter(img => typeof img === 'string' && img.trim().length > 0);
+      } else {
+        if (p.primaryImage) existingImgs.push(p.primaryImage);
+        if (p.secondaryImage && p.secondaryImage !== p.primaryImage) existingImgs.push(p.secondaryImage);
+      }
+
+      existingImgs.forEach(url => {
+        stagedProductImages.push({
+          type: 'existing',
+          url: url
+        });
+      });
+
+      renderStagedPreviews();
+      document.getElementById('product-studio-form').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetProductForm() {
+      document.getElementById('product-studio-form').reset();
+      document.getElementById('form-heading').textContent = 'ADD NEW GARMENT';
+      document.getElementById('form-product-id').value = '';
+      document.getElementById('form-primary-img').value = './assets/products/puffer-front.jpg';
+      document.getElementById('form-secondary-img').value = '';
+      stagedProductImages = [];
+      renderStagedPreviews();
+    }
+
+    document.getElementById('btn-clear-form').addEventListener('click', resetProductForm);
+
+    document.getElementById('product-studio-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const saveBtn = document.getElementById('btn-save-product');
+      const origBtnText = saveBtn ? saveBtn.innerHTML : 'SAVE / SYNC GARMENT';
+      if (saveBtn) {
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = '<span>UPLOADING TO SUPABASE... ⏳</span>';
+      }
+
+      const existingId = document.getElementById('form-product-id').value;
+      const title = document.getElementById('form-title').value.trim();
+      const category = document.getElementById('form-category').value;
+      const price = parseInt(document.getElementById('form-price').value, 10) || 2500;
+      const tag = document.getElementById('form-tag').value.trim();
+      const status = document.getElementById('form-status').value.trim() || 'DROP 004 // ACTIVE';
+      const statusType = document.getElementById('form-status-type').value;
+      const inStock = document.getElementById('form-in-stock').checked;
+
+      const selectedSizes = [];
+      document.querySelectorAll('input[name="sizes"]:checked').forEach(cb => selectedSizes.push(cb.value));
+      if (selectedSizes.length === 0) selectedSizes.push('M', 'L');
+
+      try {
+        // 1. Process and upload all staged images in order
+        const finalImageUrls = [];
+
+        for (let i = 0; i < stagedProductImages.length; i++) {
+          const item = stagedProductImages[i];
+          if (item.type === 'existing') {
+            finalImageUrls.push(item.url);
+          } else if (item.type === 'file') {
+            try {
+              if (HazelSupabase.isSupabaseConfigured()) {
+                showToast(`UPLOADING PHOTO ${i + 1} OF ${stagedProductImages.length} TO SUPABASE...`);
+                const uploadedUrl = await HazelSupabase.uploadImageToStorage(item.file);
+                finalImageUrls.push(uploadedUrl);
+              } else {
+                finalImageUrls.push(item.previewUrl);
+              }
+            } catch (uploadErr) {
+              console.error('Storage upload failed:', uploadErr);
+              showToast(`FAILED TO UPLOAD ${item.file.name}; USING LOCAL BLOB`);
+              finalImageUrls.push(item.previewUrl);
+            }
+          }
+        }
+
+        // Fallback to manual text inputs if no staged previews exist
+        if (finalImageUrls.length === 0) {
+          const manualPrimary = document.getElementById('form-primary-img').value.trim();
+          const manualSecondary = document.getElementById('form-secondary-img').value.trim();
+          if (manualPrimary) finalImageUrls.push(manualPrimary);
+          if (manualSecondary && manualSecondary !== manualPrimary) finalImageUrls.push(manualSecondary);
+        }
+
+        if (finalImageUrls.length === 0) {
+          finalImageUrls.push('./assets/products/puffer-front.jpg');
+        }
+
+        const primaryImage = finalImageUrls[0] || './assets/products/puffer-front.jpg';
+        const secondaryImage = finalImageUrls[1] || '';
+
+        const productPayload = {
+          id: existingId || `prod-${Date.now().toString().slice(-4)}`,
+          title,
+          category,
+          tag,
+          price,
+          status,
+          statusType,
+          primaryImage,
+          secondaryImage,
+          images: finalImageUrls,
+          sizes: selectedSizes,
+          inStock
+        };
+
+        if (HazelSupabase.isSupabaseConfigured()) {
+          try {
+            const savedRow = await HazelSupabase.upsertProductInCloud(productPayload);
+            if (savedRow && savedRow.id) {
+              productPayload.id = savedRow.id;
+            }
+            showToast(`SAVED TO SUPABASE WITH ${finalImageUrls.length} PHOTO(S): ${title} ✓`);
+          } catch (err) {
+            console.error('Cloud upsert failed:', err);
+            showToast('FAILED TO SYNC WITH CLOUD. SAVED LOCALLY.');
+          }
+        } else {
+          showToast(`SAVED LOCALLY WITH ${finalImageUrls.length} PHOTO(S): ${title} ✓`);
+        }
+
+        if (existingId) {
+          const idx = currentProducts.findIndex(p => p.id === existingId);
+          if (idx > -1) currentProducts[idx] = productPayload;
+        } else {
+          currentProducts.push(productPayload);
+        }
+
+        saveLocalState();
+        resetProductForm();
+      } catch (submitErr) {
+        console.error('Product submit error:', submitErr);
+        showToast('ERROR SAVING PRODUCT');
+      } finally {
+        if (saveBtn) {
+          saveBtn.disabled = false;
+          saveBtn.innerHTML = origBtnText;
+        }
+      }
+    });
+
+    /**
+     * ==========================================================================
+     * 6. TAB 2: LIVE SITE SETTINGS CMS
+     * ==========================================================================
+     */
+    function populateSiteSettingsForm() {
+      document.getElementById('settings-ticker').value = currentSettings.ticker_text || DEFAULT_SETTINGS.ticker_text;
+      document.getElementById('settings-hero-headline').value = currentSettings.hero_headline || DEFAULT_SETTINGS.hero_headline;
+      document.getElementById('settings-hero-subhead').value = currentSettings.hero_subheadline || DEFAULT_SETTINGS.hero_subheadline;
+      document.getElementById('settings-vip-alert').value = currentSettings.vip_alert_status || DEFAULT_SETTINGS.vip_alert_status;
+      document.getElementById('settings-showroom-address').value = currentSettings.showroom_address || DEFAULT_SETTINGS.showroom_address;
+      document.getElementById('settings-showroom-hours').value = currentSettings.showroom_hours || DEFAULT_SETTINGS.showroom_hours;
+      document.getElementById('settings-showroom-coords').value = currentSettings.showroom_coords || DEFAULT_SETTINGS.showroom_coords;
+      document.getElementById('settings-whatsapp-number').value = currentSettings.whatsapp_number || DEFAULT_SETTINGS.whatsapp_number;
+      document.getElementById('settings-developer-credit').value = currentSettings.developer_credit || DEFAULT_SETTINGS.developer_credit;
+      document.getElementById('settings-developer-phone').value = currentSettings.developer_phone || DEFAULT_SETTINGS.developer_phone;
+    }
+
+    document.getElementById('site-settings-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const newSettings = {
+        ...currentSettings,
+        ticker_text: document.getElementById('settings-ticker').value.trim(),
+        hero_headline: document.getElementById('settings-hero-headline').value.trim(),
+        hero_subheadline: document.getElementById('settings-hero-subhead').value.trim(),
+        vip_alert_status: document.getElementById('settings-vip-alert').value.trim(),
+        showroom_address: document.getElementById('settings-showroom-address').value.trim(),
+        showroom_hours: document.getElementById('settings-showroom-hours').value.trim(),
+        showroom_coords: document.getElementById('settings-showroom-coords').value.trim(),
+        whatsapp_number: document.getElementById('settings-whatsapp-number').value.trim(),
+        developer_credit: document.getElementById('settings-developer-credit').value.trim(),
+        developer_phone: document.getElementById('settings-developer-phone').value.trim()
+      };
+
+      currentSettings = newSettings;
+      localStorage.setItem('hazel_site_settings', JSON.stringify(newSettings));
+
+      if (HazelSupabase.isSupabaseConfigured()) {
+        try {
+          await HazelSupabase.updateSiteSettingsInCloud(newSettings);
+          showToast('SITE SETTINGS SAVED TO SUPABASE CLOUD ✓');
+        } catch (err) {
+          showToast('SAVED SETTINGS LOCALLY (CLOUD SYNC PENDING)');
+        }
+      } else {
+        showToast('SITE SETTINGS SAVED LOCALLY ✓');
+      }
+    });
+
+    document.getElementById('btn-reload-settings').addEventListener('click', () => {
+      initCMS();
+      showToast('SETTINGS RELOADED ✓');
+    });
+
+    /**
+     * ==========================================================================
+     * 7. TAB 3: SHOWROOM MEDIA UPLOADER & GALLERY CMS
+     * ==========================================================================
+     */
+    function initShowroomStudio() {
+      const fileInput = document.getElementById('showroom-file-input');
+      const addUrlBtn = document.getElementById('btn-add-showroom-url');
+      const urlInput = document.getElementById('showroom-url-input');
+      const saveBtn = document.getElementById('btn-save-showroom-gallery');
+      const resetBtn = document.getElementById('btn-reset-showroom-defaults');
+
+      // Multi-file upload from device
+      if (fileInput) {
+        fileInput.addEventListener('change', async (e) => {
+          const files = Array.from(e.target.files);
+          if (files.length === 0) return;
+
+          showToast(`UPLOADING ${files.length} SHOWROOM PHOTO(S)...`);
+
+          for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            try {
+              let uploadedUrl = '';
+              if (HazelSupabase.isSupabaseConfigured()) {
+                uploadedUrl = await HazelSupabase.uploadShowroomMediaToStorage(file);
+              } else {
+                uploadedUrl = URL.createObjectURL(file);
+              }
+
+              if (!currentSettings.showroom_gallery) currentSettings.showroom_gallery = [];
+              currentSettings.showroom_gallery.push(uploadedUrl);
+
+              showToast(`SHOWROOM PHOTO UPLOADED: ${file.name} ✓`);
+            } catch (err) {
+              console.error('Showroom upload failed:', err);
+              showToast(`UPLOAD FAILED FOR ${file.name}`);
+            }
+          }
+
+          renderShowroomStudioGallery();
+          saveShowroomGallery();
+        });
+      }
+
+      // Add direct image URL
+      if (addUrlBtn && urlInput) {
+        addUrlBtn.addEventListener('click', () => {
+          const url = urlInput.value.trim();
+          if (!url) return;
+
+          if (!currentSettings.showroom_gallery) currentSettings.showroom_gallery = [];
+          currentSettings.showroom_gallery.push(url);
+          urlInput.value = '';
+
+          renderShowroomStudioGallery();
+          saveShowroomGallery();
+          showToast('SHOWROOM IMAGE ADDED TO GALLERY ✓');
+        });
+      }
+
+      // Save Gallery Button
+      if (saveBtn) {
+        saveBtn.addEventListener('click', async () => {
+          await saveShowroomGallery();
+          showToast('SHOWROOM GALLERY SAVED TO SUPABASE CLOUD ✓');
+        });
+      }
+
+      // Reset to defaults
+      if (resetBtn) {
+        resetBtn.addEventListener('click', async () => {
+          if (confirm('Reset showroom media gallery to default photo?')) {
+            currentSettings.showroom_gallery = ['./assets/cairo-showroom.jpg'];
+            renderShowroomStudioGallery();
+            await saveShowroomGallery();
+            showToast('SHOWROOM GALLERY RESET TO DEFAULT ✓');
+          }
+        });
+      }
+    }
+
+    function renderShowroomStudioGallery() {
+      const grid = document.getElementById('showroom-gallery-grid');
+      const countBadge = document.getElementById('showroom-count-badge');
+      if (!grid) return;
+
+      const gallery = currentSettings.showroom_gallery || ['./assets/cairo-showroom.jpg'];
+
+      if (countBadge) {
+        countBadge.textContent = `${gallery.length} ${gallery.length === 1 ? 'PHOTO' : 'PHOTOS'}`;
+      }
+
+      if (gallery.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 2.5rem; background: rgba(7,25,17,0.5); border-radius: 8px; border: 1px dashed rgba(244,239,235,0.2);">
+            <p style="font-family: var(--font-mono); font-size: 0.8125rem; color: var(--text-inverse-muted);">NO SHOWROOM PHOTOS IN GALLERY YET</p>
+            <span style="font-size: 0.75rem; color: #2ED573; margin-top: 4px; display: block;">Upload real photos above to preview in Section 5!</span>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = gallery.map((imgUrl, idx) => `
+        <div class="showroom-gallery-card ${idx === 0 ? 'is-primary-cover' : ''}" data-idx="${idx}">
+          <div class="showroom-card-img-wrap">
+            <img src="${imgUrl}" alt="Showroom Photo ${idx + 1}" class="showroom-card-img" onerror="this.src='./assets/cairo-showroom.jpg'">
+            ${idx === 0 ? `<span class="showroom-cover-tag">MAIN COVER (HERO)</span>` : ''}
+            <span class="showroom-index-tag">#${idx + 1}</span>
+          </div>
+          <div class="showroom-card-body">
+            <span class="showroom-url-text" title="${imgUrl}">${imgUrl}</span>
+            <div class="showroom-card-actions">
+              ${idx !== 0 ? `<button type="button" class="btn-portal btn-portal-outline btn-make-cover" data-idx="${idx}" style="padding: 4px 7px; font-size: 9px;">MAKE COVER</button>` : ''}
+              <button type="button" class="btn-portal btn-portal-outline btn-copy-showroom-url" data-url="${imgUrl}" style="padding: 4px 7px; font-size: 9px;">COPY URL</button>
+              <button type="button" class="btn-portal btn-portal-danger btn-delete-showroom-img" data-idx="${idx}" style="padding: 4px 7px; font-size: 9px;">REMOVE</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      // Make primary cover (move to index 0)
+      grid.querySelectorAll('.btn-make-cover').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const idx = parseInt(btn.dataset.idx, 10);
+          const item = currentSettings.showroom_gallery.splice(idx, 1)[0];
+          currentSettings.showroom_gallery.unshift(item);
+          renderShowroomStudioGallery();
+          await saveShowroomGallery();
+          showToast('SET AS PRIMARY SHOWROOM COVER PHOTO ✓');
+        });
+      });
+
+      // Copy image URL
+      grid.querySelectorAll('.btn-copy-showroom-url').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const url = btn.dataset.url;
+          navigator.clipboard.writeText(url).then(() => {
+            showToast('IMAGE URL COPIED TO CLIPBOARD ✓');
+          });
+        });
+      });
+
+      // Remove image from gallery
+      grid.querySelectorAll('.btn-delete-showroom-img').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const idx = parseInt(btn.dataset.idx, 10);
+          if (confirm('Remove this photo from the showroom gallery?')) {
+            currentSettings.showroom_gallery.splice(idx, 1);
+            renderShowroomStudioGallery();
+            await saveShowroomGallery();
+            showToast('PHOTO REMOVED FROM SHOWROOM GALLERY');
+          }
+        });
+      });
+    }
+
+    async function saveShowroomGallery() {
+      localStorage.setItem('hazel_site_settings', JSON.stringify(currentSettings));
+      if (HazelSupabase.isSupabaseConfigured()) {
+        try {
+          await HazelSupabase.updateSiteSettingsInCloud(currentSettings);
+        } catch (e) {
+          console.warn('Could not save showroom gallery in cloud:', e);
+        }
+      }
+    }
+
+    /**
+     * ==========================================================================
+     * 8. UTILITIES & HELPERS
+     * ==========================================================================
+     */
+    document.getElementById('btn-copy-json').addEventListener('click', () => {
+      const jsonStr = JSON.stringify(currentProducts, null, 2);
+      navigator.clipboard.writeText(jsonStr).then(() => {
+        showToast('JSON PAYLOAD COPIED TO CLIPBOARD ✓');
+      });
+    });
+
+    document.getElementById('btn-download-json').addEventListener('click', () => {
+      const jsonStr = JSON.stringify(currentProducts, null, 2);
+      const blob = new Blob([jsonStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'products.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('DOWNLOADED products.json ✓');
+    });
+
+    document.getElementById('btn-reset-defaults').addEventListener('click', () => {
+      if (confirm('Reset catalog to authentic Drop 004 defaults?')) {
+        currentProducts = JSON.parse(JSON.stringify(INITIAL_DEFAULT_PRODUCTS));
+        saveLocalState();
+        resetProductForm();
+        showToast('CATALOG RESET TO FACTORY DEFAULTS ✓');
+      }
+    });
+
+    async function loadSQLPreview() {
+      const output = document.getElementById('sql-preview-output');
+      if (!output) return;
+      try {
+        const res = await fetch('./supabase/schema.sql');
+        if (res.ok) {
+          output.textContent = await res.text();
+        } else {
+          output.textContent = '-- View supabase/schema.sql in workspace';
+        }
+      } catch (e) {
+        output.textContent = '-- View supabase/schema.sql in workspace';
+      }
+    }
+
+    document.getElementById('btn-copy-sql').addEventListener('click', () => {
+      const text = document.getElementById('sql-preview-output').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('SQL SCHEMA COPIED TO CLIPBOARD ✓');
+      });
+    });
+
+    function showToast(msg) {
+      const toast = document.getElementById('admin-toast');
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.add('is-visible');
+      setTimeout(() => toast.classList.remove('is-visible'), 2800);
+    }
+
+    function initLiveClock() {
+      const clockEl = document.querySelector('.cairo-live-clock');
+      if (!clockEl) return;
+      function update() {
+        const now = new Date();
+        const str = new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'Africa/Cairo',
+          hour12: false,
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit'
+        }).format(now);
+        clockEl.textContent = `CAIRO LOCAL: ${str}`;
+      }
+      update();
+      setInterval(update, 1000);
+    }
+  </script>
+</body>
+</html>

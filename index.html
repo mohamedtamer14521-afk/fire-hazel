@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="hazel — Contemporary Egyptian streetwear brand. High-density apparel, architectural cuts, and raw Cairo energy. Follow @fire_hazel1.">
+  <meta name="theme-color" content="#0B2419">
+  <title>hazel — Egyptian Streetwear | Official Homepage</title>
+
+  <!-- Google Fonts: Gothic/Old-English Wordmark + Streetwear Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@600;700;800&family=UnifrakturMaguntia&family=UnifrakturCook:wght@700&family=Pirata+One&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+
+  <div class="site-wrapper">
+    
+    <!-- ==========================================
+         TOP ANNOUNCEMENT & TICKER BAR
+         ========================================== -->
+    <div class="announcement-bar" role="region" aria-label="Announcement Ticker">
+      <div class="ticker-track">
+        <!-- Loop Item A -->
+        <div class="ticker-item">
+          <span class="ticker-text">SHIPPING AVAILABLE FOR CAIRO &amp; GIZA • خدمة الشحن متوفرة للقاهرة والجيزة</span>
+          <span class="ticker-divider">/</span>
+          <span class="ticker-text">ZAHRAA EL MAADI SHOWROOM OPEN • شارع الخمسين بجوار عز المنوفي</span>
+          <span class="ticker-divider">/</span>
+          <span class="ticker-text">DROP 004 CAPSULE ACTIVE // LIMITED ALLOCATION</span>
+          <span class="ticker-divider">/</span>
+          <span class="ticker-text">CAIRO TIME: <span class="cairo-live-clock">--:--:-- CAI</span></span>
+          <span class="ticker-divider">/</span>
+          <span class="ticker-text">FOLLOW @FIRE_HAZEL1 // @MAHMOUDBONDOK_1</span>
+          <span class="ticker-divider">/</span>
+        </div>
+        <!-- Loop Item B (Duplicate for continuous seamless scroll) -->
+        <div class="ticker-item" aria-hidden="true">
+          <span class="ticker-text">SHIPPING AVAILABLE FOR CAIRO &amp; GIZA • خدمة الشحن متوفرة للقاهرة والجيزة</span>
+          <span class="ticker-divider">/</span>
+          <span class="ticker-text">ZAHRAA EL MAADI SHOWROOM OPEN • شارع الخمسين بجوار عز المنوفي</span>
+          <span class="ticker-divider">/</span>
+          <span class="ticker-text">DROP 004 CAPSULE ACTIVE // LIMITED ALLOCATION</span>
+          <span class="ticker-divider">/</span>
+          <span class="ticker-text">CAIRO TIME: <span class="cairo-live-clock">--:--:-- CAI</span></span>
+          <span class="ticker-divider">/</span>
+          <span class="ticker-text">FOLLOW @FIRE_HAZEL1 // @MAHMOUDBONDOK_1</span>
+          <span class="ticker-divider">/</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SITE HEADER / NAVIGATION SHELL (APPLE-GRADE)
+         ========================================== -->
+    <header class="site-header" id="site-header">
+      <div class="container">
+        <div class="header-inner">
+          
+          <!-- Left Column: Navigation Links (Desktop) & Mobile Menu Trigger (Mobile) -->
+          <div class="header-left-col">
+            <!-- Mobile Menu Trigger Button (< 992px) -->
+            <button class="mobile-menu-trigger" id="mobile-menu-trigger" aria-label="Toggle Navigation Menu" aria-expanded="false" title="Menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
+            <!-- Desktop Navigation Links (>= 992px) -->
+            <nav class="header-nav-left" aria-label="Main Navigation">
+              <a href="#new-drop" class="nav-link" id="nav-link-new-drop">New Drop</a>
+              <a href="#featured-collections" class="nav-link" id="nav-link-collections">Collections</a>
+              <a href="#social-visuals" class="nav-link" id="nav-link-visuals">Visuals</a>
+              <a href="#store-experience" class="nav-link" id="nav-link-flagship">Flagship</a>
+            </nav>
+          </div>
+
+          <!-- Center Column: Brand Wordmark (Exact Mathematical Center) -->
+          <div class="header-logo-center">
+            <a href="index.html" class="brand-wordmark-link" aria-label="hazel home">
+              <img src="assets/brand-logo.jpg" alt="HAZEL" class="brand-header-logo" width="160" height="56">
+            </a>
+          </div>
+
+          <!-- Right Column: Action Items (Region, Search, Account, Bag) -->
+          <div class="header-actions-right">
+            <div class="region-selector-shell" id="region-selector-pill" title="Store Location & Currency">
+              <span class="region-code">CAI</span>
+              <span class="region-sep">•</span>
+              <span class="currency-code">EGP</span>
+            </div>
+
+            <!-- Search Action Trigger -->
+            <button class="header-action-btn header-search-btn" id="header-search-btn" aria-label="Search Catalog" title="Search">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="7" stroke-width="1.8"/>
+                <path d="M21 21L16 16" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </button>
+
+            <!-- Account / VIP Concierge Action Trigger -->
+            <button class="header-action-btn header-account-btn" id="header-account-btn" aria-label="Client Concierge & Atelier" title="Concierge">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke-width="1.8"/>
+                <circle cx="12" cy="7" r="4" stroke-width="1.8"/>
+              </svg>
+            </button>
+
+            <!-- Shopping Bag Trigger -->
+            <button class="header-action-btn header-bag-btn" id="header-bag-btn" aria-label="Shopping Bag" title="Bag">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke-width="1.8"/>
+                <line x1="3" y1="6" x2="21" y2="6" stroke-width="1.8"/>
+                <path d="M16 10a4 4 0 01-8 0" stroke-width="1.8"/>
+              </svg>
+              <span class="cart-count-pill" id="cart-count-badge" aria-label="0 items in cart">0</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================
+         LIVE SEARCH MODAL OVERLAY (APPLE-GRADE FROSTED GLASS)
+         ========================================== -->
+    <div class="search-modal-overlay" id="search-modal-overlay" aria-hidden="true">
+      <div class="search-modal-card" id="search-modal" role="dialog" aria-modal="true" aria-label="Catalog Search">
+        <div class="search-modal-header">
+          <div class="search-input-wrapper">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="7" stroke-width="1.8"/>
+              <path d="M21 21L16 16" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            <input type="text" id="live-search-input" placeholder="SEARCH DROP 004 (e.g. Puffer, Mohair, Denim, Tracksuit...)" autocomplete="off">
+            <button type="button" id="btn-search-clear" class="btn-search-clear" aria-label="Clear search" style="display: none;">✕</button>
+          </div>
+          <button type="button" class="search-modal-close" id="search-modal-close" aria-label="Close search">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M18 6L6 18M6 6l12 12" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="search-filter-pills" id="search-filter-pills">
+          <button type="button" class="filter-pill is-active" data-filter="all">ALL SILHOUETTES</button>
+          <button type="button" class="filter-pill" data-filter="Outerwear">OUTERWEAR</button>
+          <button type="button" class="filter-pill" data-filter="Knitwear">KNITWEAR</button>
+          <button type="button" class="filter-pill" data-filter="Bottoms">DENIM</button>
+          <button type="button" class="filter-pill" data-filter="Sets">SETS</button>
+        </div>
+
+        <div class="search-results-container" id="search-results-container">
+          <!-- Dynamically populated via JS live filter -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         PRODUCT DETAIL QUICK VIEW MODAL
+         ========================================== -->
+    <div class="product-detail-modal-overlay" id="product-detail-modal-overlay" aria-hidden="true">
+      <div class="product-detail-modal" id="product-detail-modal" role="dialog" aria-modal="true" aria-label="Product Details">
+        <button type="button" class="product-detail-modal-close" id="product-detail-modal-close" aria-label="Close product preview">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12" stroke-width="1.75" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <div class="product-detail-modal-grid">
+          <!-- Left Column: Image Gallery Viewer -->
+          <div class="modal-gallery-col">
+            <div class="modal-main-img-wrap" id="modal-main-img-wrap">
+              <img src="./assets/products/puffer-front.jpg" alt="HAZEL Garment Preview" id="modal-main-img" class="modal-main-img" width="600" height="800">
+              
+              <!-- Editorial Crosshairs -->
+              <span class="crosshair-tl">+</span>
+              <span class="crosshair-tr">+</span>
+              <span class="crosshair-bl">+</span>
+              <span class="crosshair-br">+</span>
+
+              <!-- Image Counter Tag -->
+              <div class="modal-img-counter-badge" id="modal-img-counter">[ 01 / 02 ]</div>
+
+              <!-- Next/Prev Gallery Nav Arrows -->
+              <button type="button" class="modal-gallery-nav modal-nav-prev" id="modal-gallery-prev" aria-label="Previous image">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M15 19l-7-7 7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <button type="button" class="modal-gallery-nav modal-nav-next" id="modal-gallery-next" aria-label="Next image">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Thumbnail Strip -->
+            <div class="modal-thumbnails-strip" id="modal-thumbnails-strip">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Right Column: Editorial Details & Instant Conversion -->
+          <div class="modal-details-col">
+            <div class="modal-meta-top">
+              <span class="badge-tag tag-live" id="modal-product-badge">DROP 004 // ACTIVE</span>
+              <span class="modal-category-tag" id="modal-product-category">[ OUTERWEAR ]</span>
+            </div>
+
+            <h2 class="modal-product-title" id="modal-product-title">PERTEX BALACLAVA PUFFER JACKET</h2>
+            
+            <div class="modal-price-row">
+              <span class="modal-product-price" id="modal-product-price">3,850 EGP</span>
+              <span class="modal-vat-text">INCLUSIVE OF ALL TAXES • CAIRO DISPATCH</span>
+            </div>
+
+            <div class="modal-spec-box" id="modal-product-spec">
+              [ HEAVY INSULATION // TECHNICAL NYLON ]
+            </div>
+
+            <!-- Size Selector -->
+            <div class="modal-size-block">
+              <div class="modal-size-header">
+                <span class="modal-size-title">SELECT SIZE:</span>
+                <span class="modal-size-selected" id="modal-selected-size-label">SIZE: M</span>
+              </div>
+              <div class="modal-size-pills-row" id="modal-size-pills">
+                <!-- Size pills dynamically injected -->
+              </div>
+            </div>
+
+            <!-- Stock Status -->
+            <div class="modal-stock-row" id="modal-stock-status">
+              <span class="live-dot"></span>
+              <span>IN STOCK • READY FOR IMMEDIATE DISPATCH</span>
+            </div>
+
+            <!-- Actions Stack -->
+            <div class="modal-actions-stack">
+              <button type="button" class="btn btn-primary btn-block" id="modal-btn-add-bag">
+                <span>+ ADD TO BAG</span>
+              </button>
+              <button type="button" class="btn btn-secondary btn-block" id="modal-btn-whatsapp">
+                <span>ORDER VIA WHATSAPP CONCIERGE ↗</span>
+              </button>
+            </div>
+
+            <!-- Value Guarantees / Service Strip -->
+            <div class="modal-guarantees-grid">
+              <div class="modal-guarantee-item">
+                <span class="modal-guarantee-icon">⚡</span>
+                <div>
+                  <strong>FAST CAIRO &amp; GIZA SHIPPING</strong>
+                  <span>Dispatched in 24-48 hours directly to your door</span>
+                </div>
+              </div>
+              <div class="modal-guarantee-item">
+                <span class="modal-guarantee-icon">🏛️</span>
+                <div>
+                  <strong>SHOWROOM FITTING AVAILABLE</strong>
+                  <span>Try on at Zahraa El Maadi 50th St Flagship</span>
+                </div>
+              </div>
+              <div class="modal-guarantee-item">
+                <span class="modal-guarantee-icon">💳</span>
+                <div>
+                  <strong>FLEXIBLE PAYMENT METHODS</strong>
+                  <span>Cash on Delivery, InstaPay &amp; Vodafone Cash accepted</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         VIP CLIENT CONCIERGE & ATELIER DRAWER
+         ========================================== -->
+    <div class="concierge-drawer-overlay" id="concierge-drawer-overlay" aria-hidden="true"></div>
+    <aside class="concierge-drawer" id="concierge-drawer" role="dialog" aria-modal="true" aria-label="Client Concierge & Atelier">
+      <div class="concierge-drawer-header">
+        <div class="concierge-title-group">
+          <span class="concierge-title">CLIENT CONCIERGE</span>
+          <span class="badge-tag tag-live" style="font-size: 10px;">ATELIER CAIRO</span>
+        </div>
+        <button class="concierge-drawer-close" id="concierge-drawer-close" aria-label="Close Concierge">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12" stroke-width="1.75" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="concierge-drawer-body">
+        <!-- 1. Track Order Section -->
+        <div class="concierge-card-block">
+          <span class="concierge-card-title">📦 TRACK ORDER DISPATCH</span>
+          <p class="concierge-card-desc">Enter your Order ID or mobile number to track dispatch status with our Cairo atelier concierge.</p>
+          <div class="concierge-input-row">
+            <input type="text" id="track-order-input" placeholder="e.g. 01012345678 or HZ-004">
+            <button type="button" class="btn btn-primary btn-sm" id="btn-track-whatsapp">TRACK VIA WHATSAPP ↗</button>
+          </div>
+        </div>
+
+        <!-- 2. VIP Drop Access Status -->
+        <div class="concierge-card-block">
+          <span class="concierge-card-title">⚡ VIP DROP ACCESS PASS</span>
+          <p class="concierge-card-desc">Gain 15-minute priority allocation for Drop 005 and limited showroom releases.</p>
+          <div class="concierge-status-box">
+            <span class="live-dot"></span>
+            <span>STATUS: DROP 004 ALLOCATIONS ACTIVE</span>
+          </div>
+        </div>
+
+        <!-- 3. Direct Atelier Contacts & Hours -->
+        <div class="concierge-card-block">
+          <span class="concierge-card-title">🏛️ ATELIER HUB &amp; SHOWROOM</span>
+          <div class="concierge-info-lines">
+            <div><strong>LOCATION:</strong> Zahraa El Maadi, 50th Street, Next to Ezz El Menoufy — Cairo, Egypt</div>
+            <div><strong>العنوان:</strong> زهراء المعادي شارع الخمسين بجوار عز المنوفي</div>
+            <div><strong>HOURS:</strong> Mon – Sun: 14:00 – 23:00 CAI</div>
+            <div><strong>HOTLINE:</strong> <a href="tel:+201282350233" style="color: #2ED573; text-decoration: none; font-weight: 700;">+20 128 235 0233</a></div>
+          </div>
+        </div>
+
+        <!-- 4. Studio CMS Router Link -->
+        <div class="concierge-card-block" style="border: none; background: transparent; padding: 0;">
+          <a href="admin.html" class="btn btn-secondary btn-block" style="text-align: center; justify-content: center; width: 100%;">
+            <span>STUDIO CMS PORTAL ↗</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==========================================
+         MOBILE DRAWER NAVIGATION
+         ========================================== -->
+    <div class="mobile-drawer-overlay" aria-hidden="true"></div>
+    <aside class="mobile-drawer" aria-label="Mobile Navigation">
+      <div>
+        <div class="drawer-header">
+          <a href="index.html" class="brand-wordmark-link" aria-label="hazel home">
+            <img src="assets/brand-logo.jpg" alt="HAZEL" class="brand-header-logo logo-drawer" width="160" height="56">
+          </a>
+          <button class="mobile-drawer-close" aria-label="Close menu" style="padding: 8px;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M6 18L18 6M6 6l12 12" stroke-width="2" stroke-linecap="square"/>
+            </svg>
+          </button>
+        </div>
+
+        <nav class="drawer-nav-list">
+          <a href="#hero" class="drawer-nav-link">Home <span>↗</span></a>
+          <a href="#new-drop" class="drawer-nav-link">New Drop <span>↗</span></a>
+          <a href="#featured-collections" class="drawer-nav-link">Collections <span>↗</span></a>
+          <a href="#social-visuals" class="drawer-nav-link">Visuals &amp; Social <span>↗</span></a>
+          <a href="#store-experience" class="drawer-nav-link">Flagship Store <span>↗</span></a>
+        </nav>
+      </div>
+
+      <div class="drawer-footer">
+        <div class="badge-tag" style="justify-content: center;">
+          <span class="live-dot"></span>
+          <span>@FIRE_HAZEL1 // CAIRO</span>
+        </div>
+        <p class="body-sm" style="text-align: center; font-family: var(--font-mono); font-size: 11px;">
+          CAIRO SHOWROOM &amp; ARCHIVE<br>
+          ALL RIGHTS RESERVED © 2026
+        </p>
+      </div>
+    </aside>
+
+    <!-- ==========================================
+         SLIDE-OVER QUICK CART DRAWER (APPLE-GRADE)
+         ========================================== -->
+    <div class="cart-drawer-overlay" id="cart-drawer-overlay" aria-hidden="true"></div>
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Bag" role="dialog" aria-modal="true">
+      
+      <!-- Drawer Header -->
+      <div class="cart-drawer-header">
+        <div class="cart-drawer-title-group">
+          <span class="cart-drawer-title">YOUR BAG</span>
+          <span class="cart-count-badge" id="cart-drawer-count">[ 0 ]</span>
+        </div>
+        <button class="cart-drawer-close" id="cart-drawer-close" aria-label="Close Shopping Bag" title="Close">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12" stroke-width="1.75" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Free Delivery Progress Bar (Cairo Metropolitan Delivery) -->
+      <div class="cart-delivery-tier" id="cart-delivery-tier">
+        <div class="delivery-tier-label">
+          <span class="tier-icon">⚡</span>
+          <span class="tier-text" id="delivery-tier-text">Add 3,000 EGP more for FREE Cairo Delivery</span>
+        </div>
+        <div class="delivery-progress-track">
+          <div class="delivery-progress-fill" id="delivery-progress-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Itemized Cart Scroll Container -->
+      <div class="cart-drawer-body" id="cart-drawer-body">
+        <!-- Empty State -->
+        <div class="cart-empty-state" id="cart-empty-state">
+          <div class="empty-state-icon">
+            <svg width="40" height="40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke-width="1.5"/>
+              <line x1="3" y1="6" x2="21" y2="6" stroke-width="1.5"/>
+              <path d="M16 10a4 4 0 01-8 0" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <span class="empty-state-title">YOUR BAG IS EMPTY</span>
+          <p class="empty-state-subtitle">Explore the latest Drop 004 heavyweight silhouettes.</p>
+          <a href="#new-drop" class="btn btn-primary btn-sm" id="btn-empty-shop">EXPLORE DROP 004</a>
+        </div>
+
+        <!-- Dynamic Items List -->
+        <div class="cart-items-list" id="cart-items-list">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </div>
+
+      <!-- Drawer Footer & Guest Checkout Form -->
+      <div class="cart-drawer-footer" id="cart-drawer-footer">
+        
+        <!-- Summary Calculations -->
+        <div class="cart-summary-block">
+          <div class="summary-row">
+            <span class="summary-label">SUBTOTAL</span>
+            <span class="summary-val" id="cart-subtotal-val">0 EGP</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">ESTIMATED CAIRO DELIVERY</span>
+            <span class="summary-val" id="cart-shipping-val">50 EGP</span>
+          </div>
+          <div class="summary-row total-row">
+            <span class="summary-label">TOTAL</span>
+            <span class="summary-val" id="cart-total-val">0 EGP</span>
+          </div>
+        </div>
+
+        <!-- Conversion Action Buttons -->
+        <div class="cart-actions-stack" id="cart-actions-stack">
+          <!-- 1. WhatsApp Instant Checkout -->
+          <button type="button" class="btn btn-whatsapp-order" id="btn-whatsapp-order">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+            <span>ORDER VIA WHATSAPP ↗</span>
+          </button>
+
+          <!-- 2. Direct Guest Checkout Trigger -->
+          <button type="button" class="btn btn-primary" id="btn-toggle-guest-checkout">
+            <span>DIRECT GUEST CHECKOUT</span>
+          </button>
+        </div>
+
+        <!-- Guest Checkout Collapsible Form -->
+        <form class="guest-checkout-form" id="guest-checkout-form" style="display: none;">
+          <div class="form-header-row">
+            <span class="form-section-title">SHIPPING &amp; PAYMENT</span>
+            <button type="button" class="btn-cancel-checkout" id="btn-cancel-checkout">CANCEL</button>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label for="checkout-name">FULL NAME *</label>
+              <input type="text" id="checkout-name" required placeholder="e.g. Omar Tarek">
+            </div>
+            <div class="form-field">
+              <label for="checkout-phone">PHONE NUMBER *</label>
+              <input type="tel" id="checkout-phone" required placeholder="e.g. 01012345678">
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="checkout-address">DELIVERY ADDRESS &amp; CITY *</label>
+            <input type="text" id="checkout-address" required placeholder="Building, Street, Area (e.g. New Cairo, Zamalek)">
+          </div>
+
+          <div class="form-field">
+            <label>PAYMENT METHOD *</label>
+            <div class="payment-options-grid">
+              <label class="payment-option-card">
+                <input type="radio" name="payment-method" value="COD" checked>
+                <span class="payment-option-label">
+                  <strong>Cash on Delivery (COD)</strong>
+                  <small>Pay upon receipt</small>
+                </span>
+              </label>
+
+              <label class="payment-option-card">
+                <input type="radio" name="payment-method" value="InstaPay">
+                <span class="payment-option-label">
+                  <strong>InstaPay (IPN)</strong>
+                  <small>Direct transfer</small>
+                </span>
+              </label>
+
+              <label class="payment-option-card">
+                <input type="radio" name="payment-method" value="Vodafone Cash">
+                <span class="payment-option-label">
+                  <strong>Vodafone Cash</strong>
+                  <small>Mobile Wallet</small>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="btn-submit-order">
+            <span>CONFIRM &amp; PLACE ORDER</span>
+          </button>
+        </form>
+
+        <!-- Order Success Message -->
+        <div class="order-success-card" id="order-success-card" style="display: none;">
+          <div class="success-icon">✓</div>
+          <span class="success-title">ORDER DISPATCHED</span>
+          <p class="success-desc">Your order has been recorded. Our Cairo atelier will contact you via WhatsApp shortly with tracking details.</p>
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-close-success">CONTINUE BROWSING</button>
+        </div>
+
+      </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN CONTENT AREA
+         ========================================== -->
+    <main class="main-content">
+
+      <!-- ==========================================
+           SECTION 1: HERO CAMPAIGN (2-COLUMN EDITORIAL SPLIT)
+           ========================================== -->
+      <section class="section-wrapper section-hero section-theme-cream" id="hero">
+        <div class="container">
+          
+          <div class="grid-asymmetric-hero">
+            
+            <!-- Left Column: Editorial Typography & Interactive CTAs -->
+            <div class="hero-editorial-col">
+              <div class="section-eyebrow">
+                <span>[ 01 // CAMPAIGN ARCHIVE ]</span>
+                <span>•</span>
+                <span>CAIRO, EG</span>
+              </div>
+
+              <h1 class="display-hero" style="margin-bottom: var(--space-sm);">
+                RAW CUTS.<br>
+                HIGH DENSITY.<br>
+                <span style="color: var(--green-accent);">NO COMPROMISE.</span>
+              </h1>
+
+              <p class="body-lead" style="margin-bottom: var(--space-lg);">
+                Forged in Cairo. Heavyweight textiles, architectural streetwear silhouettes, and unfiltered energy from the flagship showroom floor to the digital feed.
+              </p>
+
+              <div class="hero-actions-row" style="display: flex; gap: var(--space-sm); flex-wrap: wrap; align-items: center; margin-bottom: var(--space-lg);">
+                <a href="#new-drop" class="btn btn-primary">EXPLORE NEW DROP</a>
+                <a href="#store-experience" class="btn btn-secondary">VISIT FLAGSHIP STORE</a>
+              </div>
+
+              <div class="hero-meta-strip" style="display: flex; gap: var(--space-xs); flex-wrap: wrap; align-items: center;">
+                <span class="badge-tag">
+                  <span class="live-dot"></span>
+                  DROP 004 ALLOCATION
+                </span>
+                <span class="badge-tag">ORIGIN: CAIRO [30.0444° N]</span>
+                <span class="badge-tag">@FIRE_HAZEL1</span>
+              </div>
+            </div>
+
+            <!-- Right Column: High-Fashion Campaign Visual Frame (4:5 Ratio) -->
+            <div class="hero-visual-col">
+              <div class="hero-campaign-frame hero-visual-card">
+                <img src="./assets/hero-campaign.jpg" alt="HAZEL FW26 Lookbook Campaign" class="hero-campaign-img" loading="eager" width="800" height="1000">
+                <div class="hero-campaign-ambient"></div>
+                
+                <span class="crosshair-tl">+</span>
+                <span class="crosshair-tr">+</span>
+                <span class="crosshair-bl">+</span>
+                <span class="crosshair-br">+</span>
+
+                <!-- Top Metadata Bar -->
+                <div class="hero-campaign-meta-bar">
+                  <span>[FW26 // CAMPAIGN FRAME 01]</span>
+                  <span style="color: #2ED573; font-weight: 700;">500 GSM FLEECE</span>
+                </div>
+
+                <!-- Bottom Metadata Bar -->
+                <div class="hero-campaign-meta-bar" style="top: auto; bottom: 0; background: linear-gradient(0deg, rgba(7, 25, 17, 0.92) 0%, rgba(7, 25, 17, 0) 100%);">
+                  <span>HAZEL ATELIER // CAIRO</span>
+                  <span>1080 × 1350 PORTRAIT</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SECTION 2: NEW DROP CAPSULE (EDITORIAL PRODUCT CARDS)
+           ========================================== -->
+      <section class="section-wrapper section-theme-sand" id="new-drop">
+        <div class="container">
+          
+          <div class="section-header">
+            <div class="section-eyebrow">
+              <span>[ 02 // RELEASE SCHEDULE ]</span>
+              <span>•</span>
+              <span>LIMITED ALLOCATION</span>
+            </div>
+            
+            <div class="section-header-row">
+              <div>
+                <h2 class="section-title">NEW DROP CAPSULE</h2>
+                <p class="body-sm" style="margin-top: 6px;">Heavyweight cotton construction, custom hardware &amp; distressed graphics.</p>
+              </div>
+              <div class="section-header-actions">
+                <span class="badge-tag tag-live">
+                  <span class="live-dot"></span>
+                  DROP 004 // ACTIVE
+                </span>
+                <a href="#featured-collections" class="btn-link">VIEW ALL CAPSULES →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Collection Category Filter Bar (Direct Capsule Sync) -->
+          <div class="collection-filter-bar" id="collection-filter-bar">
+            <div class="filter-pills-row" id="collection-filter-pills">
+              <button type="button" class="filter-pill is-active" data-filter="all">ALL SILHOUETTES</button>
+              <button type="button" class="filter-pill" data-filter="Outerwear">OUTERWEAR</button>
+              <button type="button" class="filter-pill" data-filter="Bottoms">CARGO &amp; WORKWEAR</button>
+              <button type="button" class="filter-pill" data-filter="Knitwear">KNITWEAR</button>
+              <button type="button" class="filter-pill" data-filter="Accessories">ACCESSORIES &amp; BAGS</button>
+              <button type="button" class="filter-pill" data-filter="Sets">SETS</button>
+            </div>
+            <div class="filter-count-badge" id="collection-filter-count">
+              <span>SHOWING ALL SILHOUETTES</span>
+            </div>
+          </div>
+
+          <!-- Editorial Products Grid (4-Column Desktop, 2-Column Tablet, Smooth Mobile) -->
+          <div class="product-grid-capsule">
+            
+            <!-- PRODUCT 1: PERTEX BALACLAVA PUFFER JACKET -->
+            <article class="product-card" data-product-id="prod-01">
+              <div class="product-card-visual" data-current-index="0" data-total-images="2">
+                <!-- Status Badge -->
+                <div class="product-card-badges">
+                  <span class="product-status-badge badge-warning">LOW STOCK / DROP 004</span>
+                </div>
+
+                <!-- Wishlist Trigger -->
+                <button type="button" class="product-wishlist-btn" aria-label="Add Pertex Balaclava Puffer Jacket to Wishlist" title="Save to Wishlist">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke-width="1.8"/>
+                  </svg>
+                </button>
+
+                <!-- Multi-Image Carousel Track -->
+                <div class="product-card-carousel">
+                  <div class="card-carousel-track" style="transform: translateX(0%);">
+                    <div class="card-carousel-slide is-active">
+                      <img src="./assets/products/puffer-front.jpg" alt="PERTEX BALACLAVA PUFFER JACKET - Front" class="product-img-primary" loading="lazy" width="600" height="800">
+                    </div>
+                    <div class="card-carousel-slide">
+                      <img src="./assets/products/puffer-back.jpg" alt="PERTEX BALACLAVA PUFFER JACKET - Back" class="product-img-primary" loading="lazy" width="600" height="800">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Carousel Next/Prev Arrows -->
+                <button type="button" class="card-carousel-arrow arrow-prev" aria-label="Previous Image" title="Previous Image">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M15 19l-7-7 7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <button type="button" class="card-carousel-arrow arrow-next" aria-label="Next Image" title="Next Image">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+
+                <!-- Carousel Pagination Dots -->
+                <div class="card-carousel-dots" role="tablist">
+                  <button type="button" class="card-dot is-active" data-index="0" aria-label="Slide 1"></button>
+                  <button type="button" class="card-dot" data-index="1" aria-label="Slide 2"></button>
+                </div>
+
+                <!-- Quick Add / Size Selector Overlay Pill -->
+                <div class="product-quick-add-pill" aria-label="Quick Add to Bag">
+                  <div class="size-selector-group" role="radiogroup" aria-label="Select Size for Pertex Balaclava Puffer Jacket">
+                    <button type="button" class="size-pill-btn is-active" data-size="S" aria-label="Size S">S</button>
+                    <button type="button" class="size-pill-btn" data-size="M" aria-label="Size M">M</button>
+                    <button type="button" class="size-pill-btn" data-size="L" aria-label="Size L">L</button>
+                    <button type="button" class="size-pill-btn" data-size="XL" aria-label="Size XL">XL</button>
+                  </div>
+                  <button type="button" class="btn-quick-add" aria-label="Add Pertex Balaclava Puffer Jacket to Bag">
+                    <span>+ BAG</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Editorial Info Block -->
+              <div class="product-card-info">
+                <div class="product-card-meta-tag">[ HEAVY INSULATION // TECHNICAL NYLON ]</div>
+                <div class="product-card-title-row">
+                  <h3 class="product-card-title">
+                    <a href="#product-detail-modal" class="product-card-link">PERTEX BALACLAVA PUFFER JACKET</a>
+                  </h3>
+                  <span class="product-card-price">3,850 EGP</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- PRODUCT 2: GRADIENT MOHAIR ARROW SWEATER -->
+            <article class="product-card" data-product-id="prod-02">
+              <div class="product-card-visual" data-current-index="0" data-total-images="2">
+                <!-- Status Badge -->
+                <div class="product-card-badges">
+                  <span class="product-status-badge badge-exclusive">EXCLUSIVE ALLOCATION</span>
+                </div>
+
+                <!-- Wishlist Trigger -->
+                <button type="button" class="product-wishlist-btn" aria-label="Add Gradient Mohair Arrow Sweater to Wishlist" title="Save to Wishlist">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke-width="1.8"/>
+                  </svg>
+                </button>
+
+                <!-- Multi-Image Carousel Track -->
+                <div class="product-card-carousel">
+                  <div class="card-carousel-track" style="transform: translateX(0%);">
+                    <div class="card-carousel-slide is-active">
+                      <img src="./assets/products/knit-front.jpg" alt="GRADIENT MOHAIR ARROW SWEATER - Front" class="product-img-primary" loading="lazy" width="600" height="800">
+                    </div>
+                    <div class="card-carousel-slide">
+                      <img src="./assets/products/knit-back.jpg" alt="GRADIENT MOHAIR ARROW SWEATER - Back" class="product-img-primary" loading="lazy" width="600" height="800">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Carousel Next/Prev Arrows -->
+                <button type="button" class="card-carousel-arrow arrow-prev" aria-label="Previous Image" title="Previous Image">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M15 19l-7-7 7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <button type="button" class="card-carousel-arrow arrow-next" aria-label="Next Image" title="Next Image">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+
+                <!-- Carousel Pagination Dots -->
+                <div class="card-carousel-dots" role="tablist">
+                  <button type="button" class="card-dot is-active" data-index="0" aria-label="Slide 1"></button>
+                  <button type="button" class="card-dot" data-index="1" aria-label="Slide 2"></button>
+                </div>
+
+                <!-- Quick Add / Size Selector Overlay Pill -->
+                <div class="product-quick-add-pill" aria-label="Quick Add to Bag">
+                  <div class="size-selector-group" role="radiogroup" aria-label="Select Size for Gradient Mohair Arrow Sweater">
+                    <button type="button" class="size-pill-btn is-active" data-size="M" aria-label="Size M">M</button>
+                    <button type="button" class="size-pill-btn" data-size="L" aria-label="Size L">L</button>
+                    <button type="button" class="size-pill-btn" data-size="XL" aria-label="Size XL">XL</button>
+                  </div>
+                  <button type="button" class="btn-quick-add" aria-label="Add Gradient Mohair Arrow Sweater to Bag">
+                    <span>+ BAG</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Editorial Info Block -->
+              <div class="product-card-info">
+                <div class="product-card-meta-tag">[ 450 GSM BRUSHED MOHAIR BLEND ]</div>
+                <div class="product-card-title-row">
+                  <h3 class="product-card-title">
+                    <a href="#product-detail-modal" class="product-card-link">GRADIENT MOHAIR ARROW SWEATER</a>
+                  </h3>
+                  <span class="product-card-price">2,450 EGP</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- PRODUCT 3: TECHNICAL UMBRO ARCHIVE TRACKSUIT -->
+            <article class="product-card" data-product-id="prod-03">
+              <div class="product-card-visual" data-current-index="0" data-total-images="2">
+                <!-- Status Badge -->
+                <div class="product-card-badges">
+                  <span class="product-status-badge badge-limited">LIMITED DROP</span>
+                </div>
+
+                <!-- Wishlist Trigger -->
+                <button type="button" class="product-wishlist-btn" aria-label="Add Technical Umbro Archive Tracksuit to Wishlist" title="Save to Wishlist">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke-width="1.8"/>
+                  </svg>
+                </button>
+
+                <!-- Multi-Image Carousel Track -->
+                <div class="product-card-carousel">
+                  <div class="card-carousel-track" style="transform: translateX(0%);">
+                    <div class="card-carousel-slide is-active">
+                      <img src="./assets/products/tracksuit.jpg" alt="TECHNICAL UMBRO ARCHIVE TRACKSUIT" class="product-img-primary" loading="lazy" width="600" height="800">
+                    </div>
+                    <div class="card-carousel-slide">
+                      <img src="./assets/hero-campaign.jpg" alt="TECHNICAL UMBRO ARCHIVE TRACKSUIT - Editorial" class="product-img-primary" loading="lazy" width="600" height="800">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Carousel Next/Prev Arrows -->
+                <button type="button" class="card-carousel-arrow arrow-prev" aria-label="Previous Image" title="Previous Image">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M15 19l-7-7 7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <button type="button" class="card-carousel-arrow arrow-next" aria-label="Next Image" title="Next Image">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+
+                <!-- Carousel Pagination Dots -->
+                <div class="card-carousel-dots" role="tablist">
+                  <button type="button" class="card-dot is-active" data-index="0" aria-label="Slide 1"></button>
+                  <button type="button" class="card-dot" data-index="1" aria-label="Slide 2"></button>
+                </div>
+
+                <!-- Quick Add / Size Selector Overlay Pill -->
+                <div class="product-quick-add-pill" aria-label="Quick Add to Bag">
+                  <div class="size-selector-group" role="radiogroup" aria-label="Select Size for Technical Umbro Archive Tracksuit">
+                    <button type="button" class="size-pill-btn is-active" data-size="S" aria-label="Size S">S</button>
+                    <button type="button" class="size-pill-btn" data-size="M" aria-label="Size M">M</button>
+                    <button type="button" class="size-pill-btn" data-size="L" aria-label="Size L">L</button>
+                  </div>
+                  <button type="button" class="btn-quick-add" aria-label="Add Technical Umbro Archive Tracksuit to Bag">
+                    <span>+ BAG</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Editorial Info Block -->
+              <div class="product-card-info">
+                <div class="product-card-meta-tag">[ WATER-REPELLENT NYLON SET ]</div>
+                <div class="product-card-title-row">
+                  <h3 class="product-card-title">
+                    <a href="#product-detail-modal" class="product-card-link">TECHNICAL UMBRO ARCHIVE TRACKSUIT</a>
+                  </h3>
+                  <span class="product-card-price">2,950 EGP</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- PRODUCT 4: GOTHIC APPLIQUÉ HEAVYWEIGHT DENIM -->
+            <article class="product-card" data-product-id="prod-04">
+              <div class="product-card-visual" data-current-index="0" data-total-images="2">
+                <!-- Status Badge -->
+                <div class="product-card-badges">
+                  <span class="product-status-badge badge-restock">RESTOCK COMPLETED</span>
+                </div>
+
+                <!-- Wishlist Trigger -->
+                <button type="button" class="product-wishlist-btn" aria-label="Add Gothic Appliqué Heavyweight Denim to Wishlist" title="Save to Wishlist">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke-width="1.8"/>
+                  </svg>
+                </button>
+
+                <!-- Multi-Image Carousel Track -->
+                <div class="product-card-carousel">
+                  <div class="card-carousel-track" style="transform: translateX(0%);">
+                    <div class="card-carousel-slide is-active">
+                      <img src="./assets/products/denim-detail.jpg" alt="GOTHIC APPLIQUÉ HEAVYWEIGHT DENIM" class="product-img-primary" loading="lazy" width="600" height="800">
+                    </div>
+                    <div class="card-carousel-slide">
+                      <img src="./assets/tactical-bags.jpg" alt="GOTHIC APPLIQUÉ HEAVYWEIGHT DENIM - Styling" class="product-img-primary" loading="lazy" width="600" height="800">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Carousel Next/Prev Arrows -->
+                <button type="button" class="card-carousel-arrow arrow-prev" aria-label="Previous Image" title="Previous Image">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M15 19l-7-7 7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <button type="button" class="card-carousel-arrow arrow-next" aria-label="Next Image" title="Next Image">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+
+                <!-- Carousel Pagination Dots -->
+                <div class="card-carousel-dots" role="tablist">
+                  <button type="button" class="card-dot is-active" data-index="0" aria-label="Slide 1"></button>
+                  <button type="button" class="card-dot" data-index="1" aria-label="Slide 2"></button>
+                </div>
+
+                <!-- Quick Add / Size Selector Overlay Pill -->
+                <div class="product-quick-add-pill" aria-label="Quick Add to Bag">
+                  <div class="size-selector-group" role="radiogroup" aria-label="Select Size for Gothic Appliqué Heavyweight Denim">
+                    <button type="button" class="size-pill-btn is-active" data-size="30" aria-label="Size 30">30</button>
+                    <button type="button" class="size-pill-btn" data-size="32" aria-label="Size 32">32</button>
+                    <button type="button" class="size-pill-btn" data-size="34" aria-label="Size 34">34</button>
+                    <button type="button" class="size-pill-btn" data-size="36" aria-label="Size 36">36</button>
+                  </div>
+                  <button type="button" class="btn-quick-add" aria-label="Add Gothic Appliqué Heavyweight Denim to Bag">
+                    <span>+ BAG</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Editorial Info Block -->
+              <div class="product-card-info">
+                <div class="product-card-meta-tag">[ 14 OZ RAW BLACK DENIM // EMBROIDERED ]</div>
+                <div class="product-card-title-row">
+                  <h3 class="product-card-title">
+                    <a href="#product-detail-modal" class="product-card-link">GOTHIC APPLIQUÉ HEAVYWEIGHT DENIM</a>
+                  </h3>
+                  <span class="product-card-price">2,250 EGP</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SECTION 3: VIDEO / SOCIAL SECTION (@fire_hazel1 / @mahmoudbondok_1)
+           ========================================== -->
+      <section class="section-wrapper section-theme-cream" id="social-visuals">
+        <div class="container">
+          
+          <div class="section-header">
+            <div class="section-eyebrow">
+              <span>[ 03 // DIGITAL CULTURE &amp; FIT CHECKS ]</span>
+              <span>•</span>
+              <span>@FIRE_HAZEL1</span>
+            </div>
+
+            <div class="section-header-row">
+              <div>
+                <h2 class="section-title">STREET PULSE &amp; VISUALS</h2>
+                <p class="body-sm" style="margin-top: 6px;">Unfiltered store content, sound checks, and community styling from Cairo.</p>
+              </div>
+
+              <div class="social-pill-group">
+                <a href="https://instagram.com/fire_hazel1" target="_blank" rel="noopener noreferrer" class="social-pill social-ig">
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  <span>INSTAGRAM</span>
+                </a>
+                <a href="https://tiktok.com/@fire_hazel1" target="_blank" rel="noopener noreferrer" class="social-pill social-tiktok">
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                  <span>TIKTOK</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Video & Social Reels Grid (Authentic TikTok Embeds) -->
+          <div class="grid-social-reels">
+            
+            <!-- Video 1: Ehna no&no (@mahmoudbondok_1) -->
+            <div class="tiktok-embed-wrapper">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@mahmoudbondok_1/video/7689214692409085202" data-video-id="7689214692409085202" style="max-width: 605px;min-width: 325px;">
+                <section>
+                  <a target="_blank" title="@mahmoudbondok_1" href="https://www.tiktok.com/@mahmoudbondok_1?refer=embed">@mahmoudbondok_1</a> Ehna no&#38;no❌@NOUR🥷 <a target="_blank" title="♬ original sound - Fire_hazel1" href="https://www.tiktok.com/music/original-sound-7689214775696001813?refer=embed">♬ original sound - Fire_hazel1</a>
+                </section>
+              </blockquote>
+            </div>
+
+            <!-- Video 2: Yaam ana mstnek (@mahmoudbondok_1) -->
+            <div class="tiktok-embed-wrapper">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@mahmoudbondok_1/video/7687353355844341013" data-video-id="7687353355844341013" style="max-width: 605px;min-width: 325px;">
+                <section>
+                  <a target="_blank" title="@mahmoudbondok_1" href="https://www.tiktok.com/@mahmoudbondok_1?refer=embed">@mahmoudbondok_1</a> Yaam ana mstnek😉🔥<a title="fire_hazel1" target="_blank" href="https://www.tiktok.com/tag/fire_hazel1?refer=embed">#fire_hazel1</a> <a target="_blank" title="♬ original sound - Fire_hazel1" href="https://www.tiktok.com/music/original-sound-7687353519455652626?refer=embed">♬ original sound - Fire_hazel1</a>
+                </section>
+              </blockquote>
+            </div>
+
+            <!-- Video 3: Leh amlen offer 23% (@mahmoudbondok_1) -->
+            <div class="tiktok-embed-wrapper">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@mahmoudbondok_1/video/7670641770438364437" data-video-id="7670641770438364437" style="max-width: 605px;min-width: 325px;">
+                <section>
+                  <a target="_blank" title="@mahmoudbondok_1" href="https://www.tiktok.com/@mahmoudbondok_1?refer=embed">@mahmoudbondok_1</a> Leh amlen offer 23%🤔<a title="fire_hazel1" target="_blank" href="https://www.tiktok.com/tag/fire_hazel1?refer=embed">#fire_hazel1</a> <a target="_blank" title="♬ original sound - Fire_hazel1" href="https://www.tiktok.com/music/original-sound-7670641813904050945?refer=embed">♬ original sound - Fire_hazel1</a>
+                </section>
+              </blockquote>
+            </div>
+
+          </div>
+
+          <!-- TikTok Embed Script -->
+          <script async src="https://www.tiktok.com/embed.js"></script>
+
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SECTION 4: FEATURED COLLECTION PLACEHOLDER
+           ========================================== -->
+      <section class="section-wrapper section-theme-sand" id="featured-collections">
+        <div id="featured-archive" style="position: relative; top: -80px; visibility: hidden;"></div>
+        <div class="container">
+          
+          <div class="section-header">
+            <div class="section-eyebrow">
+              <span>[ 04 // EDITORIAL LOOKBOOK ]</span>
+              <span>•</span>
+              <span>CURATED CAPSULES</span>
+            </div>
+
+            <div class="section-header-row">
+              <div>
+                <h2 class="section-title">FEATURED ARCHIVE</h2>
+                <p class="body-sm" style="margin-top: 6px;">Architectural silhouettes divided by textile weight and utility purpose.</p>
+              </div>
+              <div class="section-header-actions">
+                <span class="badge-tag">FW26 ARCHIVE INDEX</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Editorial Asymmetric Grid -->
+          <div class="grid-asymmetric-lookbook">
+            
+            <!-- Capsule 01: Outerwear & Heavy Fleece -->
+            <a href="#new-drop" class="lookbook-card capsule-card" data-capsule-category="Outerwear" aria-label="Outerwear and Fleece Capsule">
+              <img src="assets/capsules/capsule-outerwear.jpg" alt="HAZEL Outerwear and Fleece Capsule" class="lookbook-card-img" loading="lazy" width="600" height="800">
+              <div class="lookbook-card-gradient"></div>
+              
+              <div class="lookbook-meta-top">
+                <span>[CAPSULE_A // HEAVYWEAR]</span>
+                <span style="color: #2ED573; font-weight: 700;">500 GSM</span>
+              </div>
+
+              <div class="lookbook-card-info">
+                <h3 class="lookbook-card-title">OUTERWEAR &amp; FLEECE</h3>
+                <span class="lookbook-card-desc">ARCHITECTURAL PUFFERS &amp; HOODIES</span>
+              </div>
+
+              <div class="lookbook-meta-bottom">
+                <span>08 SILHOUETTES</span>
+                <span>EXPLORE CAPSULE →</span>
+              </div>
+            </a>
+
+            <!-- Capsule 02: Cargo, Denim & Workwear -->
+            <a href="#new-drop" class="lookbook-card capsule-card" data-capsule-category="Bottoms" aria-label="Cargo and Workwear Capsule">
+              <img src="assets/capsules/capsule-cargo.jpg" alt="HAZEL Cargo and Denim Capsule" class="lookbook-card-img" loading="lazy" width="600" height="800">
+              <div class="lookbook-card-gradient"></div>
+              
+              <div class="lookbook-meta-top">
+                <span>[CAPSULE_B // RAW DENIM]</span>
+                <span style="color: #2ED573; font-weight: 700;">14 OZ DENIM</span>
+              </div>
+
+              <div class="lookbook-card-info">
+                <h3 class="lookbook-card-title">CARGO &amp; WORKWEAR</h3>
+                <span class="lookbook-card-desc">GOTHIC APPLIQUÉ &amp; UTILITY CUTS</span>
+              </div>
+
+              <div class="lookbook-meta-bottom">
+                <span>06 SILHOUETTES</span>
+                <span>EXPLORE CAPSULE →</span>
+              </div>
+            </a>
+
+            <!-- Capsule 03: Hardware & Tactical Bags -->
+            <a href="#new-drop" class="lookbook-card capsule-card" data-capsule-category="Accessories" aria-label="Tactical Bags and Accessories Capsule">
+              <img src="assets/capsules/capsule-accessories.jpg" alt="HAZEL Tactical Bags and Accessories Capsule" class="lookbook-card-img" loading="lazy" width="600" height="800">
+              <div class="lookbook-card-gradient"></div>
+              
+              <div class="lookbook-meta-top">
+                <span>[CAPSULE_C // HARDWARE]</span>
+                <span style="color: #2ED573; font-weight: 700;">CORDURA NYLON</span>
+              </div>
+
+              <div class="lookbook-card-info">
+                <h3 class="lookbook-card-title">ACCESSORIES &amp; BAGS</h3>
+                <span class="lookbook-card-desc">TACTICAL TOTES &amp; BALACLAVAS</span>
+              </div>
+
+              <div class="lookbook-meta-bottom">
+                <span>12 ITEMS</span>
+                <span>EXPLORE CAPSULE →</span>
+              </div>
+            </a>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SECTION 5: CAIRO FLAGSHIP & ATELIER BRAND STORY
+           ========================================== -->
+      <section class="section-wrapper section-spacious section-theme-dark" id="store-experience">
+        <div class="container">
+          
+          <div class="grid-store-experience">
+            
+            <!-- Left Column: Cairo Showroom Experience & Direct Actions -->
+            <div class="store-editorial-col">
+              <div class="section-eyebrow eyebrow-inverse">
+                <span>[ 05 // PHYSICAL HUB ]</span>
+                <span>•</span>
+                <span>CAIRO FLAGSHIP</span>
+              </div>
+
+              <h2 class="section-title title-inverse" style="margin-bottom: var(--space-md);">
+                THE CAIRO ATELIER<br>
+                &amp; SHOWROOM.
+              </h2>
+
+              <p class="body-lead lead-inverse" style="margin-bottom: var(--space-lg);">
+                More than an e-commerce platform. Our flagship showroom in Cairo serves as the physical epicenter where new drop allocations are previewed, private styling sessions occur, and Egyptian streetwear culture is lived daily.
+              </p>
+
+              <!-- Metadata Badges (Monospace & Frosted Pills) -->
+              <div class="showroom-meta-pills">
+                <div class="showroom-pill" title="Geographic Location">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke-width="1.75"/>
+                    <circle cx="12" cy="9" r="2.5" stroke-width="1.75"/>
+                  </svg>
+                  <span>ZAHRAA EL MAADI, 50TH ST</span>
+                </div>
+
+                <div class="showroom-pill" title="Operating Hours">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" stroke-width="1.75"/>
+                    <polyline points="12 6 12 12 16 14" stroke-width="1.75"/>
+                  </svg>
+                  <span>MON – SUN: 14:00 – 23:00 CAI</span>
+                </div>
+
+                <div class="showroom-pill pill-live" title="Live Cairo Local Time">
+                  <span class="live-dot"></span>
+                  <span class="cairo-live-clock" id="cairo-clock">LIVE CAIRO: 20:00:00 CAI</span>
+                </div>
+              </div>
+
+              <!-- Store Meta Specification Grid -->
+              <div class="store-meta-grid" style="margin-top: var(--space-lg);">
+                <div class="store-meta-item" style="grid-column: 1 / -1; background: rgba(244, 239, 235, 0.04); border: 1px solid rgba(244, 239, 235, 0.12); padding: 0.85rem 1rem; border-radius: 8px;">
+                  <span class="store-meta-title" style="color: #2ED573;">SHOWROOM ADDRESS // العنوان</span>
+                  <span class="store-meta-val" style="color: var(--text-inverse); font-size: 0.8125rem; font-weight: 600; display: block; margin-top: 4px;">
+                    Zahraa El Maadi, 50th Street, Next to Ezz El Menoufy — Cairo, Egypt<br>
+                    <span style="font-family: var(--font-sans); font-size: 0.875rem; color: #2ED573;">زهراء المعادي شارع الخمسين بجوار عز المنوفي</span>
+                  </span>
+                </div>
+                <div class="store-meta-item">
+                  <span class="store-meta-title">SPACE</span>
+                  <span class="store-meta-val">Atelier &amp; Showroom</span>
+                </div>
+                <div class="store-meta-item">
+                  <span class="store-meta-title">TEXTILES</span>
+                  <span class="store-meta-val">280 – 500 GSM</span>
+                </div>
+                <div class="store-meta-item">
+                  <span class="store-meta-title">EXPERIENCE</span>
+                  <span class="store-meta-val">Private Fitting &amp; Pickup</span>
+                </div>
+                <div class="store-meta-item">
+                  <span class="store-meta-title">HOTLINE</span>
+                  <span class="store-meta-val"><a href="tel:+201282350233" style="color: #2ED573; text-decoration: none;">+20 128 235 0233</a></span>
+                </div>
+              </div>
+
+              <!-- Direct Actions -->
+              <div class="store-actions-row" style="margin-top: var(--space-xl); display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+                <a href="https://maps.google.com/?q=Zahraa+El+Maadi+50th+Street+Cairo+Egypt" target="_blank" rel="noopener noreferrer" class="btn btn-inverse" id="btn-google-maps">
+                  <span>OPEN IN GOOGLE MAPS</span>
+                  <span>↗</span>
+                </a>
+                <a href="https://wa.me/201282350233?text=Hello%20HAZEL%20Team%2C%20I%20would%20like%20to%20book%20a%20private%20fitting%20appointment%20at%20Zahraa%20El%20Maadi%20showroom." target="_blank" rel="noopener noreferrer" class="btn btn-inverse-outline" id="btn-private-fitting">
+                  <span>PRIVATE FITTING APPOINTMENT</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Column: Editorial Brand Story (Heavyweight Manifesto & 4:5 Showroom Visual) -->
+            <div class="store-visual-col">
+              <div class="showroom-visual-card">
+                <div class="showroom-img-frame">
+                  <img src="./assets/cairo-showroom.jpg" alt="HAZEL Cairo Flagship Showroom Interior" class="showroom-img" id="main-showroom-img" loading="lazy" width="800" height="1000">
+                  <div class="showroom-ambient-glow"></div>
+
+                  <!-- Editorial Crosshair Overlays -->
+                  <span class="crosshair-tl" style="color: var(--bg-primary);">+</span>
+                  <span class="crosshair-tr" style="color: var(--bg-primary);">+</span>
+                  <span class="crosshair-bl" style="color: var(--bg-primary);">+</span>
+                  <span class="crosshair-br" style="color: var(--bg-primary);">+</span>
+
+                  <!-- Top Bar Overlay -->
+                  <div class="showroom-meta-bar-top">
+                    <span>[SPACE_01 // ARCHITECTURAL ATELIER]</span>
+                    <span class="tag-monochrome">CAIRO MADE</span>
+                  </div>
+
+                  <!-- Bottom Manifesto Overlay -->
+                  <div class="showroom-manifesto-overlay">
+                    <span class="manifesto-eyebrow">HEAVYWEIGHT MANIFESTO</span>
+                    <h3 class="manifesto-heading" id="manifesto-heading">RAW DENSITY. ARCHITECTURAL CUTS.</h3>
+                    <p class="manifesto-text" id="manifesto-body">
+                      We reject thin, disposable garments. Every silhouette is cut from 280 to 500 GSM custom-milled cottons with drop-shoulder geometric tailoring, engineered to endure the pulse of Cairo and beyond.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Dynamic Showroom Media Gallery Thumbnails Strip -->
+                <div class="showroom-thumbnails-strip" id="showroom-thumbnails-strip" style="display: none;"></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ==========================================
+         BRUTALIST EDITORIAL FOOTER
+         ========================================== -->
+    <footer class="site-footer" id="site-footer">
+      <div class="container">
+        
+        <!-- Top Footer Grid (4 Columns) -->
+        <div class="footer-top-grid">
+          
+          <!-- Column 1: Brand & Atelier Coordinates -->
+          <div class="footer-brand-col">
+            <a href="index.html" class="brand-wordmark-link wordmark-inverse" aria-label="hazel home" style="margin-bottom: var(--space-xs);">
+              <span class="footer-brand-title">hazel</span>
+            </a>
+            <p class="body-sm" style="color: var(--text-inverse-muted); max-width: 34ch; margin-bottom: var(--space-md);">
+              Egyptian high-demand streetwear atelier. Heavy textiles, architectural boxy silhouettes, and raw community energy.
+            </p>
+            
+            <div class="footer-meta-block">
+              <span class="footer-meta-line"><strong>SHOWROOM:</strong> Zahraa El Maadi, 50th St, Next to Ezz El Menoufy — Cairo</span>
+              <span class="footer-meta-line"><strong>العنوان:</strong> زهراء المعادي شارع الخمسين بجوار عز المنوفي</span>
+              <span class="footer-meta-line"><strong>HOURS:</strong> Mon – Sun: 14:00 – 23:00 CAI</span>
+              <span class="footer-meta-line"><strong>TIME:</strong> <span class="cairo-live-clock">CAIRO LOCAL: --:--:--</span></span>
+            </div>
+          </div>
+
+          <!-- Column 2: Navigation & Drops Archive -->
+          <div class="footer-nav-col">
+            <span class="footer-col-title">ARCHIVE &amp; NAV</span>
+            <a href="#hero" class="footer-link">Home Archive <span>↗</span></a>
+            <a href="#new-drop" class="footer-link">Drop 004 Capsule <span>↗</span></a>
+            <a href="#featured-collections" class="footer-link">Lookbook Collections <span>↗</span></a>
+            <a href="#social-visuals" class="footer-link">Street Pulse &amp; Visuals <span>↗</span></a>
+            <a href="#store-experience" class="footer-link">Cairo Flagship Atelier <span>↗</span></a>
+            <a href="admin.html" class="footer-link" style="color: #2ED573;">Atelier Studio CMS ↗</a>
+            <a href="https://instagram.com/fire_hazel1" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram: @fire_hazel1 ↗</a>
+            <a href="https://tiktok.com/@fire_hazel1" target="_blank" rel="noopener noreferrer" class="footer-link">TikTok: @fire_hazel1 ↗</a>
+          </div>
+
+          <!-- Column 3: Client Care & Textile Guide -->
+          <div class="footer-nav-col">
+            <span class="footer-col-title">CLIENT CARE</span>
+            <a href="#new-drop" class="footer-link">Size &amp; Fit Guide (Oversized Cuts)</a>
+            <a href="#store-experience" class="footer-link">Heavyweight Care (500 GSM French Terry)</a>
+            <a href="#store-experience" class="footer-link">Exchange &amp; Refund Policy</a>
+            <a href="#store-experience" class="footer-link">Cairo &amp; Giza Shipping Guidelines</a>
+            <a href="https://wa.me/201282350233" target="_blank" rel="noopener noreferrer" class="footer-link" style="color: #2ED573;">WhatsApp Concierge: +20 128 235 0233 ↗</a>
+          </div>
+
+          <!-- Column 4: Accepted Payments & VIP Drop Access -->
+          <div class="footer-nav-col">
+            <span class="footer-col-title">PAYMENTS &amp; VIP ACCESS</span>
+            
+            <div class="payment-badges-row">
+              <span class="badge-payment">INSTAPAY</span>
+              <span class="badge-payment">VODAFONE CASH</span>
+              <span class="badge-payment">VISA / MC</span>
+              <span class="badge-payment">COD</span>
+            </div>
+
+            <div style="margin-top: var(--space-md);">
+              <span class="footer-sub-title">VIP DROP ACCESS NOTIFICATIONS</span>
+              <form class="drop-alert-form" action="#" method="POST" id="footer-newsletter-form">
+                <input type="email" class="drop-alert-input" placeholder="ENTER YOUR EMAIL" required>
+                <button type="submit" class="drop-alert-submit">JOIN</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Giant Gothic Watermark (Pure Gothic Typography / Zero Broken Placeholders) -->
+        <div class="footer-watermark-row" aria-hidden="true">
+          <span class="footer-gothic-watermark">hazel</span>
+        </div>
+
+        <!-- Bottom Attribution, Copyright & Developer Credits -->
+        <div class="footer-bottom-bar">
+          <div class="footer-bottom-left">
+            <span>© 2026 HAZEL STREETWEAR. ALL RIGHTS RESERVED. CAIRO, EGYPT.</span>
+          </div>
+          
+          <div class="footer-bottom-right">
+            <div class="developer-credit-tag">
+              <span>DEVELOPED BY MOHAMED TAMER</span>
+              <span class="dev-sep">//</span>
+              <span>FOR INFO CALL US <a href="tel:+201129333453" class="dev-phone-link">+201129333453</a></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- ==========================================
+         FLOATING LUXURY WHATSAPP SUPPORT WIDGET
+         ========================================== -->
+    <div class="floating-whatsapp-widget" id="floating-whatsapp-widget">
+      <a href="https://wa.me/201282350233?text=Hello%20HAZEL%20Team%2C%20I%20have%20an%20inquiry%20%2F%20complaint%20regarding%20my%20order." 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="floating-whatsapp-link" 
+         aria-label="Atelier Concierge & Complaints on WhatsApp">
+        <div class="whatsapp-icon-circle">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.541 1.761.817 2.796.817 3.18 0 5.767-2.587 5.767-5.768.001-3.181-2.586-5.768-5.767-5.768zm3.364 8.167c-.14.394-.711.729-1.002.775-.291.045-.632.083-2.046-.481-1.698-.679-2.784-2.427-2.868-2.54-.085-.113-.687-.914-.687-1.744 0-.829.434-1.238.588-1.408.155-.17.338-.212.451-.212.113 0 .226.002.324.007.104.005.244-.04.38.288.14.339.479 1.168.522 1.253.042.085.07.184.014.297-.056.113-.085.183-.169.282-.085.099-.178.22-.254.297-.085.085-.174.177-.075.347.099.17.438.723.94 1.17 0.647.576 1.192.754 1.361.839.17.085.269.071.368-.042.099-.113.424-.494.537-.663.113-.17.226-.141.38-.085.155.056.988.466 1.157.551.17.085.283.127.325.197.042.071.042.41-.098.804z"/>
+          </svg>
+        </div>
+        <div class="whatsapp-glow-pulse"></div>
+        <div class="whatsapp-label-box">
+          <span class="whatsapp-label-en">ATELIER CONCIERGE &amp; COMPLAINTS</span>
+          <span class="whatsapp-label-ar">تواصل وشكاوى ↗</span>
+        </div>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Official Supabase JS SDK via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Central Supabase Client & Engine Wrapper -->
+  <script src="./js/supabase-config.js"></script>
+  <!-- Main JavaScript File -->
+  <script src="./js/main.js"></script>
+</body>
+</html>

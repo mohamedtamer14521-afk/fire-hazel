@@ -1,0 +1,362 @@
+/* ==========================================================================
+   HAZEL // TYPOGRAPHY & BRAND WORDMARK SYSTEM
+   ========================================================================== */
+
+/* --- Brand Logo Image & Typography Components --- */
+.brand-wordmark-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.brand-wordmark-link:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+/* Official Header & Drawer Gothic Logo (Prominent Editorial Scale) */
+.brand-header-logo {
+  display: block;
+  height: clamp(48px, 6vw, 64px);
+  max-height: 64px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transition: height 350ms cubic-bezier(0.16, 1, 0.3, 1), transform var(--transition-fast), opacity var(--transition-fast);
+  user-select: none;
+}
+
+.site-header.is-scrolled .brand-header-logo,
+.site-header.header-scrolled .brand-header-logo {
+  height: clamp(40px, 4.8vw, 48px);
+}
+
+.brand-header-logo.logo-drawer {
+  height: clamp(44px, 5.5vw, 56px);
+  max-height: 56px;
+}
+
+@media (max-width: 576px) {
+  .brand-header-logo {
+    height: 42px;
+    max-height: 44px;
+  }
+
+  .site-header.is-scrolled .brand-header-logo,
+  .site-header.header-scrolled .brand-header-logo {
+    height: 36px;
+  }
+}
+
+.brand-logo-img {
+  display: block;
+  height: clamp(44px, 5.5vw, 56px);
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+/* Footer Gothic Brand Wordmark */
+.footer-brand-title {
+  font-family: var(--font-gothic), 'UnifrakturCook', 'Pirata One', 'Old English Text MT', serif;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--text-inverse);
+  text-transform: lowercase;
+  display: inline-block;
+  user-select: none;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer-brand-title:hover {
+  opacity: 0.85;
+}
+
+/* Footer Giant Gothic Watermark */
+.footer-gothic-watermark {
+  font-family: var(--font-gothic), 'UnifrakturCook', 'Pirata One', 'Old English Text MT', serif;
+  font-size: clamp(5rem, 18vw, 14rem);
+  font-weight: 700;
+  line-height: 0.82;
+  letter-spacing: -0.01em;
+  color: #F4EFEB;
+  opacity: 0.08;
+  display: block;
+  text-transform: lowercase;
+  text-shadow: 0 0 50px rgba(46, 213, 115, 0.06);
+}
+
+/* --- Gothic / Old English Typography Fallback --- */
+.brand-wordmark {
+  font-family: var(--font-gothic);
+  font-size: var(--font-size-logo);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  color: var(--green-deep);
+  text-transform: lowercase;
+  display: inline-block;
+  user-select: none;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.brand-wordmark:hover {
+  opacity: 0.85;
+}
+
+.brand-wordmark.wordmark-inverse {
+  color: var(--bg-primary);
+}
+
+.brand-wordmark.wordmark-huge {
+  font-size: clamp(4.5rem, 14vw, 15rem);
+  line-height: 0.82;
+  letter-spacing: -0.01em;
+  opacity: 0.95;
+}
+
+.brand-wordmark:hover {
+  opacity: 0.85;
+}
+
+.brand-wordmark.wordmark-inverse {
+  color: var(--bg-primary);
+}
+
+.brand-wordmark.wordmark-huge {
+  font-size: clamp(4.5rem, 14vw, 15rem);
+  line-height: 0.82;
+  letter-spacing: -0.01em;
+  opacity: 0.95;
+}
+
+/* --- Display & Editorial Headings --- */
+.display-hero {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5.2vw, 4.8rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .display-hero {
+    font-size: clamp(2rem, 8vw, 3rem);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+  }
+}
+
+.display-1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.display-2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.75rem);
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.display-3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+/* --- Section Eyebrows & Structural Headers --- */
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.section-eyebrow::before {
+  content: "■";
+  font-size: 0.6em;
+  color: var(--green-deep);
+}
+
+.section-eyebrow.eyebrow-inverse {
+  color: var(--text-inverse-muted);
+}
+
+.section-eyebrow.eyebrow-inverse::before {
+  color: var(--bg-primary);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 4.25rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.section-title.title-inverse {
+  color: var(--text-inverse);
+}
+
+/* --- Body & Editorial Paragraphs --- */
+.body-lead {
+  font-family: var(--font-sans);
+  font-size: clamp(0.975rem, 1.25vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  max-width: 44ch;
+}
+
+.body-lead.lead-inverse {
+  color: var(--text-inverse-muted);
+}
+
+.body-base {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.body-sm {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* --- Micro-Typography, Metadata & Streetwear Tags --- */
+.meta-code {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: 2px;
+  background-color: var(--green-subtle);
+  color: var(--green-deep);
+  border: var(--border-hairline);
+  white-space: nowrap;
+}
+
+.badge-tag.tag-inverse {
+  background-color: rgba(244, 239, 235, 0.08);
+  color: var(--bg-primary);
+  border: var(--border-inverse-subtle);
+}
+
+.badge-tag.tag-live {
+  background-color: var(--green-deep);
+  color: var(--bg-primary);
+  border: none;
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #2ED573;
+  display: inline-block;
+  animation: pulse-dot 1.8s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 8px #2ED573; }
+  100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+/* --- Ticker & Marquee Text --- */
+.ticker-text {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ticker-divider {
+  display: inline-block;
+  margin: 0 var(--space-md);
+  opacity: 0.5;
+}
+
+/* --- Navigation Links (Apple & Luxury Understated Elegance) --- */
+.nav-link {
+  font-family: var(--font-sans);
+  font-size: 0.75rem; /* 12px */
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-decoration: none;
+  position: relative;
+  padding: 8px 0;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  transition: opacity var(--transition-fast), color var(--transition-fast);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 0%;
+  height: 1.5px;
+  background-color: var(--green-deep);
+  transition: width var(--transition-base);
+  pointer-events: none;
+}
+
+.nav-link:hover {
+  opacity: 0.75;
+  color: var(--green-deep);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}

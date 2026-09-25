@@ -1,0 +1,86 @@
+[
+  {
+    "id": "prod-01",
+    "title": "PERTEX BALACLAVA PUFFER JACKET",
+    "category": "Outerwear",
+    "tag": "[ HEAVY INSULATION // TECHNICAL NYLON ]",
+    "price": 3850,
+    "status": "LOW STOCK / DROP 004",
+    "statusType": "badge-warning",
+    "primaryImage": "./assets/products/puffer-front.jpg",
+    "secondaryImage": "./assets/products/puffer-back.jpg",
+    "images": [
+      "./assets/products/puffer-front.jpg",
+      "./assets/products/puffer-back.jpg"
+    ],
+    "sizes": ["S", "M", "L", "XL"],
+    "inStock": true
+  },
+  {
+    "id": "prod-02",
+    "title": "GRADIENT MOHAIR ARROW SWEATER",
+    "category": "Knitwear",
+    "tag": "[ 450 GSM BRUSHED MOHAIR BLEND ]",
+    "price": 2450,
+    "status": "EXCLUSIVE ALLOCATION",
+    "statusType": "badge-exclusive",
+    "primaryImage": "./assets/products/knit-front.jpg",
+    "secondaryImage": "./assets/products/knit-back.jpg",
+    "images": [
+      "./assets/products/knit-front.jpg",
+      "./assets/products/knit-back.jpg"
+    ],
+    "sizes": ["M", "L", "XL"],
+    "inStock": true
+  },
+  {
+    "id": "prod-03",
+    "title": "TECHNICAL UMBRO ARCHIVE TRACKSUIT",
+    "category": "Sets & Tracksuits",
+    "tag": "[ WATER-REPELLENT NYLON SET ]",
+    "price": 2950,
+    "status": "LIMITED DROP",
+    "statusType": "badge-limited",
+    "primaryImage": "./assets/products/tracksuit.jpg",
+    "secondaryImage": "./assets/hero-campaign.jpg",
+    "images": [
+      "./assets/products/tracksuit.jpg",
+      "./assets/hero-campaign.jpg"
+    ],
+    "sizes": ["S", "M", "L"],
+    "inStock": true
+  },
+  {
+    "id": "prod-04",
+    "title": "GOTHIC APPLIQUÉ HEAVYWEIGHT DENIM",
+    "category": "Bottoms & Denim",
+    "tag": "[ 14 OZ RAW BLACK DENIM // EMBROIDERED ]",
+    "price": 2250,
+    "status": "RESTOCK COMPLETED",
+    "statusType": "badge-restock",
+    "primaryImage": "./assets/products/denim-detail.jpg",
+    "secondaryImage": "./assets/capsules/capsule-cargo.jpg",
+    "images": [
+      "./assets/products/denim-detail.jpg",
+      "./assets/capsules/capsule-cargo.jpg"
+    ],
+    "sizes": ["30", "32", "34", "36"],
+    "inStock": true
+  },
+  {
+    "id": "prod-05",
+    "title": "TACTICAL HARDWARE CHEST RIG & BALACLAVA",
+    "category": "Accessories & Bags",
+    "tag": "[ CORDURA 1000D NYLON // CUSTOM HARDWARE ]",
+    "price": 1450,
+    "status": "DROP 004 // ACTIVE",
+    "statusType": "badge-warning",
+    "primaryImage": "./assets/capsules/capsule-accessories.jpg",
+    "secondaryImage": "./assets/capsules/capsule-accessories.jpg",
+    "images": [
+      "./assets/capsules/capsule-accessories.jpg"
+    ],
+    "sizes": ["ONE SIZE"],
+    "inStock": true
+  }
+]
